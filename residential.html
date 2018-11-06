@@ -1,0 +1,329 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>BM&amp;A - Bobby Mukherji &amp; Associates</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.js"></script>
+<script>
+function slideSwitch() {
+    var $active = $('#slideshow IMG.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+    // use this to pull the images in the order they appear in the markup
+    var $next =  $active.next().length ? $active.next()
+        : $('#slideshow IMG:first');
+
+    // uncomment the 3 lines below to pull the images in random order
+    
+    // var $sibs  = $active.siblings();
+    // var rndNum = Math.floor(Math.random() * $sibs.length );
+    // var $next  = $( $sibs[ rndNum ] );
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 0, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 0 );
+});
+
+$(document).ready (function(e){
+	$(".data").mCustomScrollbar({
+		scrollButtons:{
+			enable:false,
+		},autoDraggerLength:false,
+		advanced:{
+			updateOnBrowserResize:true,
+			updateOnContentResize:true,
+		}
+	});
+	
+
+});
+
+</script>
+
+</head>
+
+
+
+
+
+<body>
+
+<div id="slideshow">		
+	<img src="images/bg2.jpg" alt="Slideshow Image 1" class="active"/>
+	
+</div>
+
+
+<div id="slideshow1" class="forleaderpage"  style="display:none" >
+	<img src="images/boby.jpg" alt="Slideshow Image 1" class="active" />	
+</div>
+
+<header id="header">
+	<div class="logo">
+		<a href="home.html">
+			<img src="images/logo.png" height="60px" width="150px" />
+		</a>
+	</div>
+</header>
+
+<section id="main-content">
+	<div class="changeablediv">
+	<div class="content-wrapper press-index1">
+		<div class="data">
+		
+		<div class="hospitality-content" style="position:relative">
+				<div class="client-main-heading">
+					<a href="#">RESIDENTIAL </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Orbit Arya, Napeansea Road - Orbit Corporation <span class="hospitality-content-year"> (2013)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Orbit Terraces, Lower Parel - Orbit Corporation <span class="hospitality-content-year"> (Ongoing)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Show flats, Lobby areas & Recreational facilities across Hiranandani Gardens, Mumbai - Hiranandani Constructions <span class="hospitality-content-year"> (2005)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Show flats, Lobby areas & Recreational facilities across Mumbai - Kalpataru Constructions  <span class="hospitality-content-year"> (2009)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Lift Lobbies and Show flats across Mumbai - Mahindra Lifespaces <span class="hospitality-content-year"> (2009)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Palace in Bellary, Karnataka (India) <span class="hospitality-content-year"> (2009)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Private Mansion at Panchsheel  Park, New Delhi <span class="hospitality-content-year"> (2014)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Mansion at Civil Lines in New Delhi <span class="hospitality-content-year"> (2003)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Mansion at GK-1, New Delhi <span class="hospitality-content-year"> (2010)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Mansion at Aurangzeb Road, New Delhi <span class="hospitality-content-year"> (2005)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Mansion in Ajmer (India) <span class="hospitality-content-year"> (1996)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Premium Villas in Indore - Milan Realties <span class="hospitality-content-year"> (2014)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Weekend Villa/s in Chattarpur Farms, New Delhi <span class="hospitality-content-year"> (2008)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Villa in Sultanpur, New Delhi <span class="hospitality-content-year"> (2004)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Bungalow at Balotra near Jaisalmer (India) <span class="hospitality-content-year"> (2003)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Bungalow in Khandala, India <span class="hospitality-content-year"> (2006)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Bungalow in Zurich <span class="hospitality-content-year"> (2009)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Bungalow in Tiger Valley, Khandala (India) <span class="hospitality-content-year"> (2001)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Row House at Bengali Market, New Delhi <span class="hospitality-content-year"> (2003)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Row House in London <span class="hospitality-content-year"> (2012)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Duplex in Dubai <span class="hospitality-content-year"> (2007)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Triplex in Santacruz, Mumbai <span class="hospitality-content-year"> (2004)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Double duplex at Band stand, Mumbai <span class="hospitality-content-year"> (2002)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Duplex at Napeansea Road, Mumbai <span class="hospitality-content-year"> (Ongoing)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Duplex in Worli  <span class="hospitality-content-year"> (2009)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Terrace Apartment in Powai <span class="hospitality-content-year"> (1994)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Apartment at Napeansea road, Mumbai <span class="hospitality-content-year"> (2004)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Apartment in Khar, Mumbai <span class="hospitality-content-year"> (2010)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Apartment in Malabar Hill, Mumbai <span class="hospitality-content-year"> (1996)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Apartment in Powai, Mumbai <span class="hospitality-content-year"> (2009)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Apartment/s in Bandra <span class="hospitality-content-year"> (1995-1996)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Apartment in GK-1, New Delhi <span class="hospitality-content-year"> (2009)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Apartment In Juhu, Mumbai <span class="hospitality-content-year"> (2014)</span> </a>
+					<div class="clear"></div>
+				</div>
+				
+				<!-- <div class="hospitality-content-block">
+					<a href="#"><span>Santacruz </span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#"><span>Aamby Valley City </span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#"><span>Khar </span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#"><span>Khandala </span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#"><span>Napeansea Rd</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#"><span>Residence in Delhi </span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#"><span>Indore</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#"><span>Hyderabad</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#"><span>Show flat for Hiranandani Constructions</span> </a>
+					<div class="clear"></div>
+				</div> -->
+		</div>
+	</div>
+	</div>
+</section>
+<footer id="footer">
+	<div class="footer-wrapper">
+		<div class="footer-menu">
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="about_us" href="about_us.html">ABOUT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="leaders" href="leaders.html">LEADERS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="press" href="press.html">PRESS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="awards" href="awards.html">AWARDS</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="hospitality" href="awards.html">hospitality</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="hospitality" href="awards.html">hospitality</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="residential" href="awards.html">RESIDENTIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="recreational" href="awards.html">RECREATIONAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="architectural" href="awards.html">ARCHITECTURAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="urban_planning" href="awards.html">URBAN PLANNING</a>
+			</div>
+			<div class="footer-menu-spacer" page="contact"></div>
+			<div class="footer-menu-tab" page="contact">
+				<a class="contact_us" href="awards.html">CONTACT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="menu"></div>
+			<div class="footer-menu-tab" page="menu">
+				<a class="menu" href="home.html">MENU</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="overlay" style="background:none;display:none">
+<div class="percent-count">
+<div class="loader-count"><span>0</span>%</div>
+<div class="loader-train"></div>
+<div class="loader-rail"></div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>BM&amp;A - Bobby Mukherji &amp; Associates</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.js"></script>
+<script>
+function slideSwitch() {
+    var $active = $('#slideshow IMG.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+    // use this to pull the images in the order they appear in the markup
+    var $next =  $active.next().length ? $active.next()
+        : $('#slideshow IMG:first');
+
+    // uncomment the 3 lines below to pull the images in random order
+    
+    // var $sibs  = $active.siblings();
+    // var rndNum = Math.floor(Math.random() * $sibs.length );
+    // var $next  = $( $sibs[ rndNum ] );
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 0, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 0 );
+});
+
+$(document).ready (function(e){
+	$(".data").mCustomScrollbar({
+		scrollButtons:{
+			enable:false,
+		},autoDraggerLength:false,
+		advanced:{
+			updateOnBrowserResize:true,
+			updateOnContentResize:true,
+		}
+	});
+	
+	$(document).on('click','.data-head',function(e){
+			var dataheight = $('.content-wrapper').css('height');
+			if(dataheight=='40px')
+			{
+				$('.content-wrapper').stop(true,false).animate({height:'460px'});
+				$('.data').slideDown();
+				$('.project-gallery').show();
+				$('.data-head img').attr('src','images/u-arrow.png');
+			}
+			else
+			{
+				$('.content-wrapper').stop(true,false).animate({height:'40px'});
+				$('.data').slideUp();
+				$('.project-gallery').hide();
+				$('.data-head img').attr('src','images/d-arrow.png');
+			}
+		});
+});
+
+</script>
+</style>
+</head>
+<body>
+<div id="slideshow">		
+	<img src="images/bg2.jpg" alt="Slideshow Image 1" class="active"/>
+	
+</div>
+<div id="leadershow" class="forleaderpage"  style="display:none" >
+	<img src="images/boby.jpg" alt="Slideshow Image 1" class="active" />	
+</div>
+<header id="header">
+	<div class="logo">
+		<a href="home.html">
+			<img src="images/logo.png" height="60px" width="150px" />
+		</a>
+	</div>
+</header>
+<section id="main-content">
+	<div class="changeablediv">
+	<div class="content-wrapper content-wrapper-new clubadj" small="true">
+		<div class="data-head club projdatahead projectheadnew">
+			Somaiya College of Engineering
+			  <div id="close_box" class="cross" style="margin-right:5px;display:none">X</div>
+			<span class="arrow">
+				<img src="images/d-arrow.png">&nbsp;
+			</span>
+		</div>
+		<div class="data clubadj no-scroll datanew">
+			<strong>Client Name:</strong> Mr. Surendra Hiranandani<br>
+			<strong>Area:</strong> 2,00,000 sq ft<br>
+			<strong>Location:</strong> Chennai<br>
+			<strong>Use:</strong> International School<br>
+			<strong>Scope:</strong> Architecture, Interior & Lighting Design
+		</div>
+		<div class="project-gallery newgallery" style="display:none">
+			<div id="image-holder">
+				<div id="pro-image-wrapper">
+					<div class="img"><div class="active"><img src="images/somaiya_college_of_engg/thumbs/1.jpg" class="le1" height="50" width="60"></div></div>
+			  </div>
+			</div>
+				<!-- Macgregor Changes -->
+				<!-- <div id="project-next" onclick="nextprojectimagescroll()"><img src="images/right-arrow.png"></div> -->
+				<div id="project-next" onclick="nextprojectimg()"><img src="images/right-arrow.png"></div>
+				<!-- <div id="project-prev" onclick="prevprojectimagescroll()"><img src="images/left-arrow.png"></div> -->
+				<div id="project-prev" onclick="prevprojectimg()"><img src="images/left-arrow.png"></div>
+		</div>
+	</div>
+	<div class="rightarrow">
+		<!-- Macgregor Changes -->
+		<!-- <img id="leader-left" src="images/left.png" onclick="prevprojectimg()"/> -->
+		<img id="leader-left" src="images/left.png" onclick="prevprojectdetail()"/>
+		<!-- <img id="leader-right" src="images/right.png" onclick="nextprojectimg()"/> -->
+		<img id="leader-right" src="images/right.png" onclick="nextprojectdetail()"/>
+		
+	</div>
+	</div>
+</section>
+<footer id="footer">
+	<div class="footer-wrapper">
+		<div class="footer-menu">
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="about_us" href="about_us.html">ABOUT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="leaders" href="leaders.html">LEADERS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="press" href="press.html">PRESS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="awards" href="awards.html">AWARDS</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="hospitality" href="awards.html">HOSPITALITY</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="commercial" href="awards.html">COMMERCIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="residetial" href="awards.html">RESIDENTIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="recreational" href="awards.html">RECREATIONAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="architectural" href="awards.html">ARCHITECTURAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="urban_planning" href="awards.html">URBAN PLANNING</a>
+			</div>
+			<div class="footer-menu-spacer" page="contact"></div>
+			<div class="footer-menu-tab" page="contact">
+				<a class="contact_us" href="awards.html">CONTACT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="menu"></div>
+			<div class="footer-menu-tab" page="menu">
+				<a class="menu" href="home.html">MENU</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="overlay" style="background:none;display:none">
+<img src="images/left_hover.png" style="display:none;opacity:0;visibility:hidden">
+<img src="images/right_hover.png" style="display:none;opacity:0;visibility:hidden">
+<div class="percent-count">
+<div class="loader-count"><span>0</span>%</div>
+<div class="loader-train"></div>
+<div class="loader-rail"></div>
+</div>
+</div>
+</body>
+</html>

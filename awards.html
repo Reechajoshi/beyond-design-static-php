@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>BM&amp;A - Bobby Mukherji &amp; Associates</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.js"></script>
+<script>
+function slideSwitch() {
+    var $active = $('#slideshow IMG.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+    // use this to pull the images in the order they appear in the markup
+    var $next =  $active.next().length ? $active.next()
+        : $('#slideshow IMG:first');
+
+    // uncomment the 3 lines below to pull the images in random order
+    
+    // var $sibs  = $active.siblings();
+    // var rndNum = Math.floor(Math.random() * $sibs.length );
+    // var $next  = $( $sibs[ rndNum ] );
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 0, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 0 );
+});
+
+$(document).ready (function(e){
+	$(".data").mCustomScrollbar({
+		scrollButtons:{
+			enable:false,
+		},autoDraggerLength:false,
+		advanced:{
+			updateOnBrowserResize:true,
+			updateOnContentResize:true,
+		}
+	});
+	
+
+});
+
+</script>
+
+</head>
+<body>
+<div id="slideshow">		
+	<img src="images/bg2.jpg" alt="Slideshow Image 1" class="active"/>
+	
+</div>
+<div id="slideshow1" class="forleaderpage"  style="display:none" >
+	<img src="images/boby.jpg" alt="Slideshow Image 1" class="active" />	
+</div>
+<header id="header">
+	<div class="logo">
+		<a href="home.html">
+			<img src="images/logo.png" height="60px" width="150px" />
+		</a>
+	</div>
+</header>
+<section id="main-content">
+	<div class="changeablediv">
+	<div class="content-wrapper">
+		<div class="data">
+		<!-- LG ARCHI DESIGN AWARD<br>
+		The "Best Interior Design Firm in Northen India" <br>
+		<br>
+		<br>
+		<br>
+		THE ECONOMIC TIMES
+		LEADERS OF INDIAN INFRASRTUCTURE & CONSTRUCTIONS AWARD
+		'Outstanding Contribution to the Indian 5 Star Hospitality Industry'<br>
+		<br>
+		<br>
+		<br>
+		PROFESSIONAL EXCELLENCE & YOUNG TALENT
+		DESIGN ENTRENUER OF THE YEAR<br>
+		Indian Institute Of Interior Designer<br>
+		<br>
+		<br>
+		<br>
+		BEST INNOVATIVE USE OF STEEL<br>
+		Jindal Stanless Innovation Award for the Le Meridien Hotel, New Delhi,<br>
+		<br>
+		<br>
+		<br>
+		'BEST HOSPITALITY INTERIORS PROJECT'<br>
+		CNBC Awaaz CRISIL Real Estate Awards for Le Meridien,New Delhi<br>
+		<br>
+		<br>
+		<br>
+		'BEST RE - DESIGNED HOTEL IN INDIA'<br>
+		Le Meridien, New Delhi, won an award by the Hotel Association of Indian;<br>-->
+		<ul class="awards-list">
+	<li>Best Interior Design firm in Northern India<br>LG Archi Design award for the 'Best Interior Design firm in Northern India'. <span style="font-size:10pt;" class="commercial-content-year"> (2008)</span></li>
+	
+	<li>The Economic Times Leaders of Indian Infrastructure &amp; Construction award for 'Outstanding Contribution to the Indian 5 Star Hospitality Industry'. <span style="font-size:10pt;" class="commercial-content-year"> (2008)</span></li>
+	<li>Indian Institute of Interior Designers for 'Professional Excellence &amp; Young Talent Design Entrepreneur of the year'. <span style="font-size:10pt;" class="commercial-content-year"> (2008)</span></li>
+	<li>Jindal Stainless Innovation Award for the 'Best innovative use of steel' for the Le Meridien Hotel, New Delhi. </li>
+	<li>CNBC Awaaz CRISIL Real Estate Award for the 'Best Hospitality Interiors Project' for Le Meridien, New Delhi.</li>
+	<li>Le Meridien, New Delhi, won an award by the Hotel Association of India for the 'Best redesigned hotel in India'. </li>
+	<li>Kalpataru Constructions won for its project - Kalpataru Horizon, Mumbai, an award by CNBC Awaaz for 'Best residential building and its associated amenities' in which BMA was involved. <span style="font-size:10pt;" class="commercial-content-year"> (2007)</span></li>
+	<li>The Sahara Star, Mumbai, was nominated for the 'Best hospitality interiors project' by the CNBC Awaaz CRISIL Real Estate Award.</li>
+	<li>IAD Award for the 'Best Architect of the year - Commercial' - Third position. <span style="font-size:10pt;" class="commercial-content-year"> (2009)</span></li>
+	<li>The Economic Times Acetech award for the Best Hospitality Design Firm in the country. <span style="font-size:10pt;" class="commercial-content-year"> (2009)</span></li>
+	<li>Construction Source India award in association with CNBC Awaaz for outstanding contribution to the hospitality sector in India. <span style="font-size:10pt;" class="commercial-content-year"> (2009)</span></li>
+	<li>Svelte Hotel &amp; Personal suites <span style="font-size:10pt;" class="commercial-content-year">  (fully designed &amp; executed by BMA)</span> won the 'Best New Business Boutique Hotel' at the Hospitality &amp; Tourism awards by the Ministry of Tourism.</li>
+	<li>The Lalit Srinagar (formerly known as the Intercontinental)won the 'Best Heritage Hotel' at the Hospitality &amp; Tourism awards by the Ministry of Tourism. <span style="font-size:10pt;" class="commercial-content-year"> (Designed by BMA)</span></li>
+	<li>The International Hotel Awards Asia Pacific awarded Hotel Sahara Star the Five Star Award for Best Convention Hotel for India, Highly commended for Hotel Architecture for India and Highly commended for Hotel Interior for India. <span style="font-size:10pt;" class="commercial-content-year"> (Designed by BMA)</span></li>
+	<li>Aamby Valley City won the Best Tourism Destination 2011 award at the 7th Hospitality India International Awards. <span style="font-size:10pt;" class="commercial-content-year"> (Master-planned by BMA)</span></li>
+	<li>The Lalit Jaipur was awarded the best airport hotel at the Asia Pacific Hotel Awards. <span style="font-size:10pt;" class="commercial-content-year"> (Designed by BMA)</span></li>
+	<li>Asia Spa awarded  Rejuve, the spa at the Lalit Jaipur as the Best New Spa. <span style="font-size:10pt;" class="commercial-content-year"> (Designed by BMA)</span></li>
+</ul>
+        </div>
+	</div>
+	</div>
+</section>
+<footer id="footer">
+	<div class="footer-wrapper">
+		<div class="footer-menu">
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="about_us" href="about_us.html">ABOUT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="leaders" href="leaders.html">LEADERS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="press" href="press.html">PRESS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="awards" href="awards.html">AWARDS</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="hospitality" href="awards.html">HOSPITALITY</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="commercial" href="awards.html">COMMERCIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="residential" href="awards.html">RESIDENTIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="recreational" href="awards.html">RECREATIONAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="architectural" href="awards.html">ARCHITECTURAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="urban_planning" href="awards.html">URBAN PLANNING</a>
+			</div>
+			<div class="footer-menu-spacer" page="contact"></div>
+			<div class="footer-menu-tab" page="contact">
+				<a class="contact_us" href="awards.html">CONTACT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="menu"></div>
+			<div class="footer-menu-tab" page="menu">
+				<a class="menu" href="home.html">MENU</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="overlay" style="background:none;display:none">
+<div class="percent-count">
+<div class="loader-count"><span>0</span>%</div>
+<div class="loader-train"></div>
+<div class="loader-rail"></div>
+</div>
+</div>
+</body>
+</html>

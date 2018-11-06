@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>BM&amp;A - Bobby Mukherji &amp; Associates</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.js"></script>
+<script>
+function slideSwitch() {
+    var $active = $('#slideshow IMG.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+    // use this to pull the images in the order they appear in the markup
+    var $next =  $active.next().length ? $active.next()
+        : $('#slideshow IMG:first');
+
+    // uncomment the 3 lines below to pull the images in random order
+    
+    // var $sibs  = $active.siblings();
+    // var rndNum = Math.floor(Math.random() * $sibs.length );
+    // var $next  = $( $sibs[ rndNum ] );
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 0, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 0 );
+});
+
+$(document).ready (function(e){
+	$(".data").mCustomScrollbar({
+		scrollButtons:{
+			enable:false,
+		},autoDraggerLength:false,
+		advanced:{
+			updateOnBrowserResize:true,
+			updateOnContentResize:true,
+		}
+	});
+	
+	$(document).on('click','.data-head',function(e){
+			var dataheight = $('.content-wrapper').css('height');
+			if(dataheight=='40px')
+			{
+				$('.content-wrapper').stop(true,false).animate({height:'460px'});
+				$('.data').slideDown();
+				$('.project-gallery').show();
+				$('.data-head img').attr('src','images/u-arrow.png');
+			}
+			else
+			{
+				$('.content-wrapper').stop(true,false).animate({height:'40px'});
+				$('.data').slideUp();
+				$('.project-gallery').hide();
+				$('.data-head img').attr('src','images/d-arrow.png');
+			}
+		});
+});
+
+</script>
+</style>
+</head>
+<body>
+<div id="slideshow">		
+	<img src="images/bg2.jpg" alt="Slideshow Image 1" class="active"/>
+	
+</div>
+<div id="leadershow" class="forleaderpage"  style="display:none" >
+	<img src="images/boby.jpg" alt="Slideshow Image 1" class="active" />	
+</div>
+<header id="header">
+	<div class="logo">
+		<a href="home.html">
+			<img src="images/logo.png" height="60px" width="150px" />
+		</a>
+	</div>
+</header>
+<section id="main-content">
+	<div class="changeablediv">
+	<div class="content-wrapper proadj">
+		<div class="data-head projdatahead" onclick="projectheadclick();">
+			Ivory Premium
+			<span class="arrow"><img src="images/d-arrow.png">&nbsp;</span>
+		</div>
+		<div class="data headadj">
+			<p class="firstparagraph">Delhi, the capital & India is the perfect blend of tradition and modernity. Old and new. Art and technology. And this was the very brief. To design a hotel situated in the heart of Delhi that captured both these aspects of this fascinating city.</p> 
+			<p>But we weren't the only ones selected to do the job. Some of best-known international names in the hospitality industry were also in the running. <br/>
+			'Art and tech' was the brief. 'Light and dark' is how we interpreted it. And it landed us the job. We gave the jury what they wanted. And more. </p>
+			<p>To create the desired look and feel, the lighting needed to be out of the ordinary. Something unseen. And we found the perfect material to achieve this in Spain and Italy. We also wanted everything to reek of futuristic modernity. The furniture. The flooring. The high-end accessories. The steel canopy of the porch. Everything was state-of-the-art.</p> 
+			<p>Main Lobby: The lobby is all about purity. White. White flooring. White walls. White ash wood. And it all comes alive when light hits it. Creating different patterns. Designs. Moods. </p>
+			<p>For this very purpose, the lighting design had to be flawless. So different kinds of lighting techniques were employed to create the desired result<br/>
+			Streaks of light were used to light up the wood panelled surface. Different projections of square lights light up the floor and faded away only to appear at different times and locations. The ceiling too had light fixtures embedded inside slits. And to add to it all is a large sloping mirrored surface on one of the walls. One that gives a whole new dimension to this space.</p> 
+			<p>The black and white furniture that resembles the skin of a killer whale was made in a factory near Venice. The latest furniture manufacturing technoloj was employed to create this look. And in keeping with the 'art and tech' theme, traditional painting hanging on walls were done away with. Instead, large LCD screens act as canvases with moving graphics. Modernity to the extreme. </p>
+			<p>The reception: <br/>
+			It all begins with the spotless white flooring merging into a rhapsody of black, grey and white marble mosaics. The mosaic design is fluid. It leaves the floor and travels all the way up to the reception counter. These exquisite tiles were designed by us and prepared by the traditional artisans of Italy. </p>
+		</div>
+		<div class="project-gallery">			
+			<div id="image-holder">
+				<div id="pro-image-wrapper">
+					<div class="img"><div class="active"><img src="images/bmaivorypremium/thumbs/1.jpg" class="le1" height="50" width="60"></div></div>
+					<div class="img"><div><img src="images/bmaivorypremium/thumbs/2.jpg" class="le2" height="50" width="60"></div></div>
+                    <div class="img">
+                      <div><img src="images/bmaivorypremium/thumbs/3.jpg" class="le2" height="50" width="60"></div></div>
+				</div>
+			</div>
+			<!-- Macgregor Changes -->
+			<!-- <div id="project-next" onclick="nextprojectimagescroll()"><img src="images/right-arrow.png"></div> -->
+			<div id="project-next" onclick="nextprojectimg()"><img src="images/right-arrow.png"></div>
+			<!-- <div id="project-prev" onclick="prevprojectimagescroll()"><img src="images/left-arrow.png"></div> -->
+			<div id="project-prev" onclick="prevprojectimg()"><img src="images/left-arrow.png"></div>
+
+		</div>
+	</div>
+	<div class="rightarrow">
+		<!-- Macgregor Changes -->
+		<!-- <img id="leader-left" src="images/left.png" onclick="prevprojectimg()"/> -->
+		<img id="leader-left" src="images/left.png" onclick="prevprojectdetail()"/>
+		<!-- <img id="leader-right" src="images/right.png" onclick="nextprojectimg()"/> -->
+		<img id="leader-right" src="images/right.png" onclick="nextprojectdetail()"/>
+
+	</div>
+	</div>
+</section>
+<footer id="footer">
+	<div class="footer-wrapper">
+		<div class="footer-menu">
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="about_us" href="about_us.html">ABOUT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="leaders" href="leaders.html">LEADERS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="press" href="press.html">PRESS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="awards" href="awards.html">AWARDS</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="hospitality" href="awards.html">HOSPITALITY</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="commercial" href="awards.html">COMMERCIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="residetial" href="awards.html">RESIDENTIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="recreational" href="awards.html">RECREATIONAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="architectural" href="awards.html">ARCHITECTURAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="urban_planning" href="awards.html">URBAN PLANNING</a>
+			</div>
+			<div class="footer-menu-spacer" page="contact"></div>
+			<div class="footer-menu-tab" page="contact">
+				<a class="contact_us" href="awards.html">CONTACT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="menu"></div>
+			<div class="footer-menu-tab" page="menu">
+				<a class="menu" href="home.html">MENU</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="overlay" style="background:none;display:none">
+<img src="images/left_hover.png" style="display:none;opacity:0;visibility:hidden">
+<img src="images/right_hover.png" style="display:none;opacity:0;visibility:hidden">
+<div class="percent-count">
+<div class="loader-count"><span>0</span>%</div>
+<div class="loader-train"></div>
+<div class="loader-rail"></div>
+</div>
+</div>
+</body>
+</html>

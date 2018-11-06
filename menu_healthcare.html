@@ -1,0 +1,193 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>BM&amp;A - Bobby Mukherji &amp; Associates</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.js"></script>
+<script>
+function slideSwitch() {
+    var $active = $('#slideshow IMG.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+    // use this to pull the images in the order they appear in the markup
+    var $next =  $active.next().length ? $active.next()
+        : $('#slideshow IMG:first');
+
+    // uncomment the 3 lines below to pull the images in random order
+    
+    // var $sibs  = $active.siblings();
+    // var rndNum = Math.floor(Math.random() * $sibs.length );
+    // var $next  = $( $sibs[ rndNum ] );
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 0, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 0 );
+});
+
+$(document).ready (function(e){
+	$(".data").mCustomScrollbar({
+		scrollButtons:{
+			enable:false,
+		},autoDraggerLength:false,
+		advanced:{
+			updateOnBrowserResize:true,
+			updateOnContentResize:true,
+		}
+	});
+	
+
+});
+
+</script>
+
+</head>
+
+
+
+
+
+<body>
+
+<div id="slideshow">		
+	<img src="images/bg2.jpg" alt="Slideshow Image 1" class="active"/>
+	
+</div>
+
+
+<div id="slideshow1" class="forleaderpage"  style="display:none" >
+	<img src="images/boby.jpg" alt="Slideshow Image 1" class="active" />	
+</div>
+
+<header id="header">
+	<div class="logo">
+		<a href="home.html">
+			<img src="images/logo.png" height="60px" width="150px" />
+		</a>
+	</div>
+</header>
+
+<section id="main-content">
+	<div class="changeablediv">
+	<div class="content-wrapper press-index1">
+		<div class="data">
+		
+		<div class="hospitality-content" style="position:relative">
+				<div class="client-main-heading">
+					<a href="#">HEALTHCARE </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Vijaya Diagnostic Center - Supriya Reddy <span class="hospitality-content-year"> (2006)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Somajiguda Hospital in Hyderabad - Supriya Reddy <span class="hospitality-content-year"> (2008)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Healthcare Facility in the Bronx (NY State) - Oxford Healthplans <span class="hospitality-content-year"> (1997)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Metropolis Laboratory, Mumbai - Dr. Sushil Shah <span class="hospitality-content-year"> (1999)</span> </a>
+					<div class="clear"></div>
+				</div>
+					
+				<!-- <div class="hospitality-content-block">
+					<a href="#">Vijaya Diagnostic Center - Supriya Reddy <span class="hospitality-content-year"> (2006)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Somajiguda Hospital in Hyderabad - Supriya Reddy <span class="hospitality-content-year"> (2008)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Healthcare Facility in the Bronx (NY State) - Oxford Healthplans <span class="hospitality-content-year"> (1997)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Metropolis Laboratory, Mumbai - Dr. Sushil Shah <span class="hospitality-content-year"> (1999)</span> </a>
+					<div class="clear"></div>
+				</div> -->
+		</div>
+	</div>
+	</div>
+</section>
+<footer id="footer">
+	<div class="footer-wrapper">
+		<div class="footer-menu">
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="about_us" href="about_us.html">ABOUT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="leaders" href="leaders.html">LEADERS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="press" href="press.html">PRESS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="awards" href="awards.html">AWARDS</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="hospitality" href="awards.html">hospitality</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="hospitality" href="awards.html">hospitality</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="residential" href="awards.html">RESIDENTIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="recreational" href="awards.html">RECREATIONAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="architectural" href="awards.html">ARCHITECTURAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="urban_planning" href="awards.html">URBAN PLANNING</a>
+			</div>
+			<div class="footer-menu-spacer" page="contact"></div>
+			<div class="footer-menu-tab" page="contact">
+				<a class="contact_us" href="awards.html">CONTACT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="menu"></div>
+			<div class="footer-menu-tab" page="menu">
+				<a class="menu" href="home.html">MENU</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="overlay" style="background:none;display:none">
+<div class="percent-count">
+<div class="loader-count"><span>0</span>%</div>
+<div class="loader-train"></div>
+<div class="loader-rail"></div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>BM&amp;A - Bobby Mukherji &amp; Associates</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.js"></script>
+<script>
+function slideSwitch() {
+    var $active = $('#slideshow IMG.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+    // use this to pull the images in the order they appear in the markup
+    var $next =  $active.next().length ? $active.next()
+        : $('#slideshow IMG:first');
+
+    // uncomment the 3 lines below to pull the images in random order
+    
+    // var $sibs  = $active.siblings();
+    // var rndNum = Math.floor(Math.random() * $sibs.length );
+    // var $next  = $( $sibs[ rndNum ] );
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 0, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+function setCustomScrollbar()
+{
+	$(".data").mCustomScrollbar({
+		scrollButtons:{
+			enable:false,
+		},autoDraggerLength:false,
+		advanced:{
+			updateOnBrowserResize:true,
+			updateOnContentResize:true,
+		}
+	});
+}
+
+$(function(e) {
+    setInterval( "slideSwitch()", 0 );
+	setCustomScrollbar();
+
+	var default_margin = $('.menu-line').css('margin-left'),
+	speed = 'normal',
+	effect = '';
+	$(document).on('mouseenter','.menu-tab',function(e){
+		default_margin = $('.menu-line').css('margin-left');
+		m_val = $(this).attr('tab');
+		if(m_val==0){return false;}
+		m_val = m_val*25;
+		$('.menu-line').stop(true, false).animate({marginLeft:m_val+'%'},speed,effect);
+	});
+	
+	#(document).on('click','.menu-tab',function(e){
+		var dth='',i = 0;
+		switch($(this).attr('tab'))
+		{
+			case '0':
+				$('#pro-container').fadeOut();
+				while(i<$('.project-class').length)
+				{
+					if($('.project-class:eq('+i+')').css('height')!='0px')
+					{
+						dth = $('.project-class:eq('+i+')').attr('id');
+					}
+					i++;
+				}
+				if(dth!='')
+				{					
+					$('#'+dth).stop(true,false).animate({height:'0px'},function(e){
+						$('.project-down-arrow').hide();
+						$('div.menu-tab[tab=2] span').show();
+						$('#project-cont').fadeOut();
+					});
+				}
+				else
+				{
+					$('#project-cont').fadeOut();
+				}
+			break;
+			case '1':
+				$('#pro-container').fadeToggle();
+				while(i<$('.project-class').length)
+				{
+					if($('.project-class:eq('+i+')').css('height')!='0px')
+					{
+						dth = $('.project-class:eq('+i+')').attr('id');
+					}
+					i++;
+				}
+				if(dth!='')
+				{					
+					$('#'+dth).stop(true,false).animate({height:'0px'},function(e){
+						$('.project-down-arrow').hide();
+						$('div.menu-tab[tab=2] span').show();
+						$('#project-cont').fadeOut();
+					});
+				}
+				else
+				{
+					$('#project-cont').fadeOut();
+				}
+			break;
+			case '2':
+				$('#pro-container').fadeOut();
+				$('#project-cont').fadeToggle();
+			break;
+			case '3':
+				$('#pro-container').fadeOut();
+				while(i<$('.project-class').length)
+				{
+					if($('.project-class:eq('+i+')').css('height')!='0px')
+					{
+						dth = $('.project-class:eq('+i+')').attr('id');
+					}
+					i++;
+				}
+				if(dth!='')
+				{					
+					$('#'+dth).stop(true,false).animate({height:'0px'},function(e){
+						$('.project-down-arrow').hide();
+						$('div.menu-tab[tab=2] span').show();
+						$('#project-cont').fadeOut();
+					});
+				}
+				else
+				{
+					$('#project-cont').fadeOut();
+				}
+			break;
+		}
+	});
+	
+	#(document).on('click','.project-sub a',function(e){
+		var menuid = $(this).parent().attr('forid');
+		var dth='',i = 0;
+		while(i<$('.project-class').length)
+		{
+			if($('.project-class:eq('+i+')').css('height')!='0px')
+			{
+				dth = $('.project-class:eq('+i+')').attr('id');
+			}
+			i++;
+		}
+		if(dth!='')
+		{					
+			$('#'+dth).stop(true,false).animate({height:'0px'},function(e){
+				$('.project-down-arrow').hide();
+				if(dth!=menuid)
+				{
+					$('.project-down-arrow').show();
+					$('.project-up-arrow').show();
+					$('#'+menuid).animate({height:'250px'},{duration:1000,easing:"easeOutCirc"});
+				}
+				else
+				{
+					$('.project-down-arrow').hide();
+					$('div.menu-tab[tab=2] span').fadeIn('fast');
+					
+				}
+			});
+		}
+		else
+		{
+			$('div.menu-tab[tab=2] span').fadeOut('fast',function(e){
+				$('.project-down-arrow').show();
+				$('.project-up-arrow').show();
+				$('#'+menuid).stop(true,false).animate({height:'250px'},{duration:1000,easing:"easeOutCirc"});
+			});
+		}
+		//alert(dth+'+'+menuid);
+	});
+});
+</script>
+</head>
+<body>
+<div id="slideshow">		
+	<img src="images/bg2.jpg" alt="Slideshow Image 1" class="active"/>
+	
+</div>
+<div id="slideshow1" class="forleaderpage"  style="display:none" >
+	<img src="images/boby.jpg" alt="Slideshow Image 1" class="active" />	
+</div>
+<header id="header">
+	<div class="logo">
+		<a href="home.html">
+			<img src="images/logo.png" height="60px" width="150px" />
+		</a>
+	</div>
+</header>
+<section id="main-content">
+	<div class="changeablediv">
+		<div id="menu-wrapper">
+			<div id="new-project-container">
+				<div id="project-new">
+					<div id="hospitality" class="project-class" style="height:0px;overflow:hidden;">
+						<div><a class="new-head">HOSPITALITY</a></div>
+						<div id="hospitality-scroller" class="scroller-div">
+							<a class="sub-link" href="#">Intercontinental</a><br>
+							<a class="sub-link" href="#">The Lalit(Bharat Hotels)</a><br>
+							<a class="sub-link" href="#">The Royal Orchid</a><br>
+							<a class="sub-link" href="le_meridian.html">Le Meridien</a><br>
+							<a class="sub-link" href="#">Sahara Hospitality</a><br />
+							<a class="sub-link" href="#">Bawa International</a><br />
+							<a class="sub-link" href="#">Starwood Group Of Hotels</a><br />
+							<a class="sub-link" href="#">Chalukya Group Of Hotels</a><br />
+							<a class="sub-link" href="#">Carlson Hospitality</a><br />
+							<a class="sub-link" href="#">Jaypee Group Of Hotels</a><br />
+							<a class="sub-link" href="#">Hans Hotels</a><br />
+							<a class="sub-link" href="#">MDLR Hospitality</a><br />
+							<a class="sub-link" href="#">Intercontinental</a><br>
+							<a class="sub-link" href="#">The Lalit(Bharat Hotels)</a><br>
+							<a class="sub-link" href="#">The Royal Orchid</a><br>
+							<a class="sub-link" href="le_meridian.html">Le Meridien</a><br>
+							<a class="sub-link" href="#">Sahara Hospitality</a><br />
+							<a class="sub-link" href="#">Bawa International</a><br />
+							<a class="sub-link" href="#">Starwood Group Of Hotels</a><br />
+							<a class="sub-link" href="#">Chalukya Group Of Hotels</a><br />
+							<a class="sub-link" href="#">Carlson Hospitality</a><br />
+							<a class="sub-link" href="#">Jaypee Group Of Hotels</a><br />
+							<a class="sub-link" href="#">Hans Hotels</a><br />
+							<a class="sub-link" href="#">MDLR Hospitality</a><br />
+						</div>
+					
+                    </div>
+					<div id="commercial" class="project-class" style="height:0px;overflow:hidden;">
+						<div><a class="new-head">COMMERCIAL</a></div>
+						<div id="commercial-scroller" class="scroller-div">
+							<a class="sub-link" href="#">Commercial 1</a><br />
+							<a class="sub-link" href="#">Commercial 2</a><br />
+							<a class="sub-link" href="#">Commercial 3</a><br />
+							<a class="sub-link" href="#">Commercial 4</a><br />
+							<a class="sub-link" href="#">Commercial 5</a><br />
+							<a class="sub-link" href="#">Commercial 6</a><br />
+							<a class="sub-link" href="#">Commercial 7</a><br />
+							<a class="sub-link" href="#">Commercial 8</a><br />
+							<a class="sub-link" href="#">Commercial 9</a><br />
+							<a class="sub-link" href="#">Commercial 10</a><br />
+							<a class="sub-link" href="#">Commercial 11</a><br />
+							<a class="sub-link" href="#">Commercial 12</a><br />
+							<a class="sub-link" href="#">Commercial 13</a><br />
+							<a class="sub-link" href="#">Commercial 14</a><br />
+							<a class="sub-link" href="#">Commercial 15</a><br />
+							<a class="sub-link" href="#">Commercial 16</a><br />
+							<a class="sub-link" href="#">Commercial 17</a><br />
+							<a class="sub-link" href="#">Commercial 18</a><br />
+							<a class="sub-link" href="#">Commercial 19</a><br />
+							<a class="sub-link" href="#">Commercial 20</a><br />
+							<a class="sub-link" href="#">Commercial 21</a><br />
+							<a class="sub-link" href="#">Commercial 22</a><br />
+							<a class="sub-link" href="#">Commercial 23</a><br />
+							<a class="sub-link" href="#">Commercial 24</a><br />
+							<a class="sub-link" href="#">Commercial 25</a><br />
+							<a class="sub-link" href="#">Commercial 26</a><br />
+						</div>
+					</div>
+					<div id="residential" class="project-class" style="height:0px;overflow:hidden;">
+						<div><a class="new-head">RESIDETIAL</a></div>
+						<div id="residential-scroller" class="scroller-div">
+							<a class="sub-link" href="#">Residential 1</a><br />
+							<a class="sub-link" href="#">Residential 2</a><br />
+							<a class="sub-link" href="#">Residential 3</a><br />
+							<a class="sub-link" href="#">Residential 4</a><br />
+							<a class="sub-link" href="#">Residential 5</a><br />
+							<a class="sub-link" href="#">Residential 6</a><br />
+							<a class="sub-link" href="#">Residential 7</a><br />
+							<a class="sub-link" href="#">Residential 8</a><br />
+							<a class="sub-link" href="#">Residential 9</a><br />
+							<a class="sub-link" href="#">Residential 10</a><br />
+							<a class="sub-link" href="#">Residential 11</a><br />
+							<a class="sub-link" href="#">Residential 12</a><br />
+							<a class="sub-link" href="#">Residential 13</a><br />
+							<a class="sub-link" href="#">Residential 14</a><br />
+							<a class="sub-link" href="#">Residential 15</a><br />
+							<a class="sub-link" href="#">Residential 16</a><br />
+							<a class="sub-link" href="#">Residential 17</a><br />
+							<a class="sub-link" href="#">Residential 18</a><br />
+							<a class="sub-link" href="#">Residential 19</a><br />
+							<a class="sub-link" href="#">Residential 20</a><br />
+							<a class="sub-link" href="#">Residential 21</a><br />
+							<a class="sub-link" href="#">Residential 22</a><br />
+							<a class="sub-link" href="#">Residential 23</a><br />
+							<a class="sub-link" href="#">Residential 24</a><br />
+							<a class="sub-link" href="#">Residential 25</a><br />
+							<a class="sub-link" href="#">Residential 26</a><br />
+						</div>
+					</div>
+					<div id="recreational" class="project-class" style="height:0px;overflow:hidden;">
+						<div><a class="new-head">RECREATIONAL</a></div>
+						<div id="recreational-scroller" class="scroller-div">
+							<a class="sub-link" href="#">Recreational 1</a><br />
+							<a class="sub-link" href="#">Recreational 2</a><br />
+							<a class="sub-link" href="#">Recreational 3</a><br />
+							<a class="sub-link" href="#">Recreational 4</a><br />
+							<a class="sub-link" href="#">Recreational 5</a><br />
+							<a class="sub-link" href="#">Recreational 6</a><br />
+							<a class="sub-link" href="#">Recreational 7</a><br />
+							<a class="sub-link" href="#">Recreational 8</a><br />
+							<a class="sub-link" href="#">Recreational 9</a><br />
+							<a class="sub-link" href="#">Recreational 10</a><br />
+							<a class="sub-link" href="#">Recreational 11</a><br />
+							<a class="sub-link" href="#">Recreational 12</a><br />
+							<a class="sub-link" href="#">Recreational 13</a><br />
+							<a class="sub-link" href="#">Recreational 14</a><br />
+							<a class="sub-link" href="#">Recreational 15</a><br />
+							<a class="sub-link" href="#">Recreational 16</a><br />
+							<a class="sub-link" href="#">Recreational 17</a><br />
+							<a class="sub-link" href="#">Recreational 18</a><br />
+							<a class="sub-link" href="#">Recreational 19</a><br />
+							<a class="sub-link" href="#">Recreational 20</a><br />
+							<a class="sub-link" href="#">Recreational 21</a><br />
+							<a class="sub-link" href="#">Recreational 22</a><br />
+							<a class="sub-link" href="#">Recreational 23</a><br />
+							<a class="sub-link" href="#">Recreational 24</a><br />
+							<a class="sub-link" href="#">Recreational 25</a><br />
+							<a class="sub-link" href="#">Recreational 26</a><br />
+						</div>
+					</div>
+					<div id="architectural" class="project-class" style="height:0px;overflow:hidden;">
+						<div><a class="new-head">ARCHITECTURAL</a></div>
+						<div id="architectural-scroller" class="scroller-div">
+							<a class="sub-link" href="#">Architectural 1</a><br />
+							<a class="sub-link" href="#">Architectural 2</a><br />
+							<a class="sub-link" href="#">Architectural 3</a><br />
+							<a class="sub-link" href="#">Architectural 4</a><br />
+							<a class="sub-link" href="#">Architectural 5</a><br />
+							<a class="sub-link" href="#">Architectural 6</a><br />
+							<a class="sub-link" href="#">Architectural 7</a><br />
+							<a class="sub-link" href="#">Architectural 8</a><br />
+							<a class="sub-link" href="#">Architectural 9</a><br />
+							<a class="sub-link" href="#">Architectural 10</a><br />
+							<a class="sub-link" href="#">Architectural 11</a><br />
+							<a class="sub-link" href="#">Architectural 12</a><br />
+							<a class="sub-link" href="#">Architectural 13</a><br />
+							<a class="sub-link" href="#">Architectural 14</a><br />
+							<a class="sub-link" href="#">Architectural 15</a><br />
+							<a class="sub-link" href="#">Architectural 16</a><br />
+							<a class="sub-link" href="#">Architectural 17</a><br />
+							<a class="sub-link" href="#">Architectural 18</a><br />
+							<a class="sub-link" href="#">Architectural 19</a><br />
+							<a class="sub-link" href="#">Architectural 20</a><br />
+							<a class="sub-link" href="#">Architectural 21</a><br />
+							<a class="sub-link" href="#">Architectural 22</a><br />
+							<a class="sub-link" href="#">Architectural 23</a><br />
+							<a class="sub-link" href="#">Architectural 24</a><br />
+							<a class="sub-link" href="#">Architectural 25</a><br />
+							<a class="sub-link" href="#">Architectural 26</a><br />
+						</div>
+					</div>
+					<div id="urbanplanning" class="project-class" style="height:0px;overflow:hidden;">
+						<div><a class="new-head">URBAN PLANNING</a></div>
+						<div id="urbanplanning-scroller" class="scroller-div">
+							<a class="sub-link" href="#">Urban Planning 1</a><br />
+							<a class="sub-link" href="#">Urban Planning 2</a><br />
+							<a class="sub-link" href="#">Urban Planning 3</a><br />
+							<a class="sub-link" href="#">Urban Planning 4</a><br />
+							<a class="sub-link" href="#">Urban Planning 5</a><br />
+							<a class="sub-link" href="#">Urban Planning 6</a><br />
+							<a class="sub-link" href="#">Urban Planning 7</a><br />
+							<a class="sub-link" href="#">Urban Planning 8</a><br />
+							<a class="sub-link" href="#">Urban Planning 9</a><br />
+							<a class="sub-link" href="#">Urban Planning 10</a><br />
+							<a class="sub-link" href="#">Urban Planning 11</a><br />
+							<a class="sub-link" href="#">Urban Planning 12</a><br />
+							<a class="sub-link" href="#">Urban Planning 13</a><br />
+							<a class="sub-link" href="#">Urban Planning 14</a><br />
+							<a class="sub-link" href="#">Urban Planning 15</a><br />
+							<a class="sub-link" href="#">Urban Planning 16</a><br />
+							<a class="sub-link" href="#">Urban Planning 17</a><br />
+							<a class="sub-link" href="#">Urban Planning 18</a><br />
+							<a class="sub-link" href="#">Urban Planning 19</a><br />
+							<a class="sub-link" href="#">Urban Planning 20</a><br />
+							<a class="sub-link" href="#">Urban Planning 21</a><br />
+							<a class="sub-link" href="#">Urban Planning 22</a><br />
+							<a class="sub-link" href="#">Urban Planning 23</a><br />
+							<a class="sub-link" href="#">Urban Planning 24</a><br />
+							<a class="sub-link" href="#">Urban Planning 25</a><br />
+							<a class="sub-link" href="#">Urban Planning 26</a><br />
+						</div>
+					</div>
+				</div>
+				<div class="project-down-arrow" style="display:none"></div>
+				<div class="project-up-arrow" style="display:none"></div>
+			</div>      
+			<div id="profile-menu">
+				<div id="pro-container">
+					<div class="profile-sub"><a href="about_us.html">about us</a></div>
+					<div class="profile-sub"><a id="profile-about-us" href="leaders.html">leaders</a></div>
+					<div class="profile-sub"><a href="press.html">press</a></div>
+					<div class="profile-sub"><a href="awards.html">awards</a></div>
+			  </div>
+		  </div>
+			<div id="project-menu">
+				<div id="project-cont">
+					<div class="project-sub" tab="zero" forid="hospitality"><a href="#">hospitality</a></div>
+					<div class="project-sub" tab="one" forid="commercial"><a href="#">commercial</a></div>
+					<div class="project-sub" tab="two" forid="residential"><a href="#">residential</a></div>
+					<div class="project-sub" tab="three" forid="recreational"><a href="#">recreational</a></div>
+					<div class="project-sub" tab="four" forid="architectural"><a href="#">architectural</a></div>
+					<div class="project-sub" tab="five" forid="urbanplanning"><a href="#">urban planning</a></div>
+				</div>
+			</div>
+			<div class="menu-tab" tab="0">
+				<span>menu</span>
+			</div>
+			<div class="menu-tab" tab="1">
+				<!-- <a href="about_main.html"><span>profile</span></a> -->
+				<span>profile</span>
+			</div>
+			<div class="menu-tab menu-tab2" tab="2">
+				<span>projects</span>
+			</div>
+			<div class="menu-tab" tab="3">
+				<a href="contact_us.html"><span>contact us</span></a>
+			</div>
+			<div id="menu-line-wrapper">
+				<div class="menu-line"></div>
+			</div>
+		</div>
+		</div>
+</section>
+<footer id="footer">
+	<div class="footer-wrapper">
+		<div class="footer-menu">
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="about_us" href="about_us.html">ABOUT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="leaders" href="leaders.html">LEADERS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="press" href="press.html">PRESS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="awards" href="awards.html">AWARDS</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="hospitality" href="awards.html">HOSPITALITY</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="commercial" href="awards.html">COMMERCIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="residential" href="awards.html">RESIDENTIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="recreational" href="awards.html">RECREATIONAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="architectural" href="awards.html">ARCHITECTURAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="urban_planning" href="awards.html">URBAN PLANNING</a>
+			</div>
+			<div class="footer-menu-spacer" page="contact"></div>
+			<div class="footer-menu-tab" page="contact">
+				<a class="contact_us" href="awards.html">CONTACT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="menu"></div>
+			<div class="footer-menu-tab" page="menu">
+				<a class="menu" href="home.html">MENU</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="overlay" style="display:none">
+<div class="percent-count">
+<div class="loader-count"><span>0</span>%</div>
+<div class="loader-train"></div>
+<div class="loader-rail"></div>
+</div>
+</div>
+</body>
+</html>

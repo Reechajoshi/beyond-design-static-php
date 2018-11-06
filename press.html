@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>BM&amp;A - Bobby Mukherji &amp; Associates</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.js"></script>
+<script>
+function slideSwitch() {
+    var $active = $('#slideshow IMG.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+    // use this to pull the images in the order they appear in the markup
+    var $next =  $active.next().length ? $active.next()
+        : $('#slideshow IMG:first');
+
+    // uncomment the 3 lines below to pull the images in random order
+    
+    // var $sibs  = $active.siblings();
+    // var rndNum = Math.floor(Math.random() * $sibs.length );
+    // var $next  = $( $sibs[ rndNum ] );
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 0, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 0 );
+});
+
+$(document).ready (function(e){
+	$(".data").mCustomScrollbar({
+		scrollButtons:{
+			enable:false,
+		},autoDraggerLength:false,
+		advanced:{
+			updateOnBrowserResize:true,
+			updateOnContentResize:true,
+		}
+	});
+	
+
+});
+
+</script>
+
+</head>
+<body>
+<div id="slideshow">		
+	<img src="images/bg2.jpg" alt="Slideshow Image 1" class="active"/>
+	
+</div>
+<div id="slideshow1" class="forleaderpage"  style="display:none" >
+	<img src="images/boby.jpg" alt="Slideshow Image 1" class="active" />	
+</div>
+<header id="header">
+	<div class="logo">
+		<a href="home.html">
+			<img src="images/logo.png" height="60px" width="150px" />
+		</a>
+	</div>
+</header>
+<section id="main-content">
+	<div class="changeablediv">
+	<div class="content-wrapper press-index1">
+		<div class="data">
+			<div class="press-content" style="position:relative">
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;">
+					<table height="100%" style="border-spacing:0px;" width="100%"><tr><td valign="middle">
+					<img src="images/Press_images/thumbs/Architect & Interiors India, (April, 2009)_1.jpeg" >
+					</table>
+					<div style="clear:both;"></div></div>
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Architect & Interiors India</span><span style="color: #67544C">  (April, 2009)</span>	</div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Le Meridien New Delhi's overhaul"</span>	</div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;">
+					<table height="100%" style="border-spacing:0px;"  width="100%"><tr><td valign="middle">
+					<img src="images/Press_images/thumbs/Architect & Interiors India, (April, 2009)_2.jpeg" >
+					</table>
+					<div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Architect & Interiors India <span style="color: #67544C"> (April, 2009)</span></span><br /><br />
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Architect & Interiors India</span><span style="color: #67544C"> (April, 2009)</span>	</div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Wizard of source"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;">
+					<table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle">
+					<img src="images/Press_images/thumbs/Architect & Interiors India, (April, 2009)_3.jpg" >
+					</table>
+					<div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Architect & Interiors India <span style="color: #67544C"> (April, 2009)</span></span><br /><br />
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Architect & Interiors India</span><span style="color: #67544C"> (April, 2009)</span>	</div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "The one and only"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;">
+					<table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle">
+					<img src="images/Press_images/thumbs/Architecture_Update .jpg" >
+					</table>
+					<div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Architecture Update </span><br /><br />
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Architecture Update</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "CNBC Awaaz Award Winner"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;">
+					<table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle">
+					<img src="images/Press_images/thumbs/BBC_Good_Homes.jpg" >
+					</table>
+					<div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">BBC Good Homes</span><br /><br />
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">BBC Good Homes</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Decor extraordinaire"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;">
+					<table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle">
+					<img src="images/Press_images/thumbs/BUSINESS STANDARD.jpg" >
+					
+					</table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Business Standard</span><br /><br />
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Business Standard</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "The hospitality architect of India"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;">
+					<table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle">
+					<img src="images/Press_images/thumbs/Construction Week (December, 2008).JPG" >
+					</table>
+					<div style="clear:both;"></div></div>
+					<span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Construction Week<span style="color: #67544C">  (December, 2008)</span></span><br /><br />
+					<div class="clear"></div>
+					<!-- <div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Construction Week<span style="color: #67544C">  (December, 2008)</span></span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "The hospitality architect of India"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div> -->
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;">
+					<table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle">
+					<img src="images/Press_images/thumbs/DESIGN TODAY 2.jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Design Today</span><br /><br />
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Design Today</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Power Room paradise"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/DESIGN TODAY.jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Design Today</span><br /><br />
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Design Today</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Uber Style"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/Express_Hospitality-1.jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Express Hospitality</span><br /><br />
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Express Hospitality</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Designing Luxury"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/Financial Express (October, 2008).JPG" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Financial Express <span style="color: #67544C"> (October, 2008)</span> </span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Financial Express</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Realty Bites"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/FINANCIAL EXPRESS 02.jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Financial Express</span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Financial Express</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Aiming for supreme excellence"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/GRAPHITTI - THE TELEGRAPH MAGAZINE.jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Graphitti - The Telegraph Magazine</span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Graphitti - The Telegraph Magazine</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Grand Design"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/HINDUSTAN TIME CITY 2.jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Hindustan Time City</span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Hindustan Time City</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "The aesthetic appeal"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/HINDUSTAN TIME CITY 3.jpeg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Hindustan Time City</span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Hindustan Time City</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Artistic designs with a hint of high-tech"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/HINDUSTAN TIME ESTATE .jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Hindustan Time Estate </span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Hindustan Time Estate</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Delhi's truly unique"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/Home Review.jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Home Review</span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Home Review</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "looking skyward"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/India today - Simply Mumbai-(September, 2008).jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">India Today - Simply Mumbai- <span style="color: #67544C"> (September, 2008)</span> </span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">India Today - Simply Mumbai- <span style="color: #67544C"> (September, 2008)</span></span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Makeover Mavericks"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/Indian Architect & Builder (May, 1997).jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Indian Architect & Builder (May, 1997)</span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Indian Architect & Builder  <span style="color: #67544C"> (May, 1997)</span></span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Making waves globally"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/INDIAN EXPRESS.jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Indian Express</span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Indian Express</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "embarking on cross cultural practises "</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/INDIAN PR WRIRE.jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Indian PR Wrire</span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Indian PR Wrire</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "CNBC CRISIL award for best hospitality interiors"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/Khaleej Times (October, 2012).JPG" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Khaleej Times <span style="color: #67544C"> (October, 2012)</span> </span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Khaleej Times <span style="color: #67544C"> (October, 2012)</span></span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Best Healthcare Facility Design"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/LIQUID.jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Liquid</span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Liquid <span style="color: #67544C"> (October, 2012)</span></span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Drawing Designs"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/LOKSATTA .jpg" ></table><div style="clear:both;"></div></div>
+					<span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Loksatta </span> 
+					<div class="clear"></div>
+					<!-- <div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Loksatta <span style="color: #67544C"> (October, 2012)</span></span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Drawing Designs"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div> -->
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/MAN'S WORLD, aug 2007.jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Man's World <span style="color: #67544C"> (August 2007)</span> </span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Man's World<span style="color: #67544C"> (August 2007)</span></span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "space crafter"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/PANJAB KESARI.jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Panjab Kesari</span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Panjab Kesari</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "designer of choice"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/Prajavani-(Nov, 2008).JPG" ></table><div style="clear:both;"></div></div>
+					<span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Prajavani<span style="color: #67544C">  (November, 2008)</span> </span> 
+					<div class="clear"></div>
+					<!-- <div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Prajavani<span style="color: #67544C">  (November, 2008)</span> </span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "designer of choice"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div> -->
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/SOCIETY INTERIORS(September 2007) .jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Society Interiors<span style="color: #67544C">  (September, 2007)</span> </span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Society Interiors<span style="color: #67544C">  (September, 2007)</span></span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "The forefront of high-tech and contemporary design"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/The asian Age.jpeg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">The Asian Age</span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">The Asian Age<span style="color: #67544C">  (September, 2007)</span></span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Ace Architect likes to fuse Art & technology"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/THE HINDU(February 2009).jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">The Hindu<span style="color: #67544C">  (February, 2009)</span></span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">The Hindu<span style="color: #67544C">  (February, 2009)</span></span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Sense and sensibility"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/THE MAN.jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">The Man</span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">The Man</span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "truth, light and beauty"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/Times_Property(January 2009).jpg" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Times Property<span style="color: #67544C">  (January, 2009)</span></span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Times Property<span style="color: #67544C">  (January, 2009)</span></span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Timeless Space"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+				<div class="press-content-block">
+					<div style="overflow: hidden;width:140px;height:140px;background:rgba(18, 15, 13, 0.8);float:left;text-align:center;"><table style="border-spacing:0px;"  height="100%" width="100%"><tr><td valign="middle"><img src="images/Press_images/thumbs/TimesProperty-(dec, 2008).JPG" ></table><div style="clear:both;"></div></div>
+					<!-- <span class="tab-link"  id="architecture_update"  style="float:left;margin-top:2px;margin-left:19px;">Times Property<span style="color: #67544C">  (December, 2008)</span> </span> 
+					<div class="clear"></div> -->
+					<div style="float:left;">
+						<div style="margin-top:2px;margin-left:22px;"><span class="tab-link"  id="architecture_update"  style="">Times Property<span style="color: #67544C">  (December, 2008)</span></span></div>
+						<div style="margin-top:9px;margin-left:22px;"><span style="color: #67544C"> "Quality Matters"</span></div>
+					<div class="clear"></div>
+					</div><div class="clear"></div>
+				</div>
+			</div>
+			</div>
+	</div>
+	</div>
+</section>
+<footer id="footer">
+	<div class="footer-wrapper">
+		<div class="footer-menu">
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="about_us" href="about_us.html">ABOUT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="leaders" href="leaders.html">LEADERS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="press" href="press.html">PRESS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="awards" href="awards.html">AWARDS</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="hospitality" href="awards.html">HOSPITALITY</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="commercial" href="awards.html">COMMERCIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="residential" href="awards.html">RESIDENTIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="recreational" href="awards.html">RECREATIONAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="architectural" href="awards.html">ARCHITECTURAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="urban_planning" href="awards.html">URBAN PLANNING</a>
+			</div>
+			<div class="footer-menu-spacer" page="contact"></div>
+			<div class="footer-menu-tab" page="contact">
+				<a class="contact_us" href="awards.html">CONTACT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="menu"></div>
+			<div class="footer-menu-tab" page="menu">
+				<a class="menu" href="home.html">MENU</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="overlay" style="background:none;display:none">
+<div class="percent-count">
+<div class="loader-count"><span>0</span>%</div>
+<div class="loader-train"></div>
+<div class="loader-rail"></div>
+</div>
+</div>
+</body>
+</html>

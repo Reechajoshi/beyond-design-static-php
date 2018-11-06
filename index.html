@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>BM&amp;A - Bobby Mukherji &amp; Associates</title>
+<link rel="shortcut icon" href="images/favicon.png" type="image/png">
+<link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.js"></script>
+
+<script type="text/javascript" src="js/fancybox/jquery.fancybox.js?v=2.1.0"></script>
+<link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css?v=2.1.0" media="screen" />
+<link rel="stylesheet" type="text/css" href="js/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.3" />
+<script type="text/javascript" src="js/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.3"></script>
+
+<script type="text/javascript" src="js/jquery.ba-hashchange.min.js"></script>
+<script type="text/javascript" src="js/dynamicpage.js"></script>
+<script>
+function show_project_sublinks( main_link, sublink_container, menuid ) // a href = mainlink , hospitality_architectural_sublinks, hospitality
+{
+	var sublink_count = $("#" + sublink_container).find( '.sub-link' ).length;
+	var mainlink_count = $(main_link).parent().find( '.main-link' ).length;
+	var main_container_ht = parseInt( $( "#" + menuid ).css('height') );
+	
+	if( $("#"+sublink_container).is( ':visible' ) )
+	{
+		$(main_link).parent().find( '.main-link' ).each(function(){	
+			$(this).css('color', '#67544C');
+			
+			// $(this).css( 'color', '#A29992' );
+			$(this).mouseover(function() {
+				$(this).css('color', '#A29992'); // light color
+			}).mouseout(function() {
+				$(this).css('color', '#67544C'); // dark color
+			});
+			
+		});
+		$("#"+sublink_container).attr( "style" , "display:none;" );
+		// $( "#" + menuid ).attr( "style", "height: " + ( ( mainlink_count * 17 ) + 28 ) + "px" );
+		var new_height = ( mainlink_count * 17 ) + 28;
+		new_height = new_height > 270 ? 270 : new_height;
+		
+		$( "#" + menuid ).animate({height: new_height+'px'});
+		$('.project-down-arrow').hide();
+		$('.project-up-arrow').hide();
+	}
+	else
+	{
+		$(main_link).parent().find( '.main-link' ).each(function(){
+			// HACK
+			if( $("#"+sublink_container).prev().prev().html() != $(this).html() )
+			{
+				// $(this).css( 'color', '#A29992' );
+				$(this).mouseover(function() {
+					$(this).css('color', '#67544C');
+				}).mouseout(function() {
+					$(this).css('color', '#A29992');
+				});
+			}
+			else
+			{
+				$(this).mouseover(function() {
+					$(this).css('color', '#A29992');
+				}).mouseout(function() {
+					$(this).css('color', '#A29992');
+				});
+			}
+			$(this).css('color', '#A29992');
+		});
+		$("#"+sublink_container).attr( "style" , "display:block;" );
+		// $( "#" + menuid ).attr( "style", "height: " + ( main_container_ht + ( sublink_count * 17 ) ) + "px" );
+		var new_height = main_container_ht + ( sublink_count * 17 );
+		new_height = new_height > 270 ? 270 : new_height;
+		$( "#" + menuid ).animate({height:  new_height+'px'});
+		if( new_height == 270 )
+		{
+			$('.project-down-arrow').show();
+			$('.project-up-arrow').show();
+		}
+	}
+}	
+
+function show_footer_project_sublinks( main_link, sublink_container, menuid )
+{
+	var sublink_count = $("#" + sublink_container).find( '.sub-link' ).length;
+	var mainlink_count = $(main_link).parent().find( '.main-link' ).length;
+	var main_container_ht = parseInt( $( "#" + menuid ).css('height') );
+	
+	// HACK:
+	var all_sublink_div = [ 'hospitality_hotels_sublinks', 'hospitality_architectural_sublinks', 'hospitality_longuebars_sublinks' ];
+	
+	for( var i = 0; i < all_sublink_div.length; i ++ )
+	{
+		if( all_sublink_div[ i ] == sublink_container )
+		{
+			continue;
+		}
+		else
+		{
+			$('#' +all_sublink_div[ i ] ).hide();
+		}
+		
+	}
+	if( $("#"+sublink_container).is( ':visible' ) )
+	{
+		$(main_link).parent().find( '.main-link' ).each(function(){	
+			$(this).css('color', '#67544C');
+			
+			// $(this).css( 'color', '#A29992' );
+			$(this).mouseover(function() {
+				$(this).css('color', '#A29992'); // light color
+			}).mouseout(function() {
+				$(this).css('color', '#67544C'); // dark color
+			});
+			
+		});
+		$("#"+sublink_container).attr( "style" , "display:none;" );
+		// $( "#" + menuid ).attr( "style", "height: " + ( ( mainlink_count * 17 ) + 28 ) + "px" );
+		var new_height = ( mainlink_count * 17 ) + 28;
+		new_height = new_height > 270 ? 270 : new_height;
+		
+		$( "#" + menuid ).animate({height: new_height+'px'});
+		$('.project-down-arrow').hide();
+		$('.project-up-arrow').hide();
+		
+	}
+	else
+	{
+		$(main_link).parent().find( '.main-link' ).each(function(){
+			// HACK
+			if( $("#"+sublink_container).prev().prev().html() != $(this).html() )
+			{
+				// $(this).css( 'color', '#A29992' );
+				$(this).mouseover(function() {
+					$(this).css('color', '#67544C');
+				}).mouseout(function() {
+					$(this).css('color', '#A29992');
+				});
+			}
+			else
+			{
+				$(this).mouseover(function() {
+					$(this).css('color', '#A29992');
+				}).mouseout(function() {
+					$(this).css('color', '#A29992');
+				});
+			}
+			$(this).css('color', '#A29992');
+		});
+		$("#"+sublink_container).attr( "style" , "display:block;" );
+		$("#"+sublink_container).children().each(function(){
+			$(this).show();
+		});
+		// $( "#" + menuid ).attr( "style", "height: " + ( main_container_ht + ( sublink_count * 17 ) ) + "px" );
+		var new_height = main_container_ht + ( sublink_count * 17 );
+		new_height = new_height > 270 ? 270 : new_height;
+		$( "#" + menuid ).animate({height: new_height+'px'});
+		if( new_height == 270 )
+		{
+			$('.project-down-arrow').show();
+			$('.project-up-arrow').show();
+		}
+	}
+}
+
+
+function slideSwitch() {
+    var $active = $('#mainslideshow IMG.active');
+
+    if ( $active.length == 0 ) $active = $('#mainslideshow IMG:last');
+
+    // use this to pull the images in the order they appear in the markup
+    var $next =  $active.next().length ? $active.next()
+        : $('#mainslideshow IMG:first');
+
+    // uncomment the 3 lines below to pull the images in random order
+    
+    // var $sibs  = $active.siblings();
+    // var rndNum = Math.floor(Math.random() * $sibs.length );
+    // var $next  = $( $sibs[ rndNum ] );
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0},3000)
+        .addClass('active')
+        .animate({opacity: 1.0}, 2000, function() {
+            $active.removeClass('active last-active');
+        });
+}
+function setCustomScrollbar()
+{
+	$(".data:not(.no-scroll)").mCustomScrollbar({
+		scrollButtons:{
+			enable:false
+		},
+		autoDraggerLength:false,
+		advanced:{
+			updateOnBrowserResize:true,
+			updateOnContentResize:true
+		},
+		mouseWheelPixels: 100
+	});
+
+	$(".scroller-div").mCustomScrollbar({
+
+		scrollButtons:{
+			enable:true
+		},
+		autoDraggerLength:false,
+		contentTouchScroll:true,
+		advanced:{
+			updateOnBrowserResize:true,
+			updateOnContentResize:true
+		},
+		callbacks:{
+			onTotalScroll: function(e){
+				// alert( '1' );
+				// $('.project-down-arrow').css('background','url("images/project-arrow-up.png") no-repeat scroll 0 0 transparent');
+				// $('.project-down-arrow').attr('side','up');
+			},
+			whileScrolling: function(){
+				// alert( '2' );
+				// $('.project-down-arrow').css('background','url("images/project-arrow-down.png") no-repeat scroll 0 0 transparent');
+				// $('.project-down-arrow').attr('side','down');
+			}
+		},
+		mouseWheelPixels: 100
+	});
+}
+
+
+var mainsliderinterval,currentProject,projectselectclass,cur_project='',count_click=0,show_bg=0;
+$(function(e) {
+	
+	$('.dark-overlay').fadeIn(10,function(e){
+		$('.dark-loader-train').animate({width:"100%"},8000,function(e){
+			$('.dark-overlay').fadeOut(10);
+			
+			newHash = window.location.hash.substring(1);
+			if( newHash == 'index.html' )
+			{
+				var iw = 3556, ih = 2347;
+				var cw = $( window ).width(), ch = Math.floor((cw/iw)*ih), ct = Math.floor(($( window ).height() - ch) / 2);
+				var canvas1 = $('<canvas/>',{'class':'main-bma-img', 'style':'border:0px solid #000;'}).width(cw).height(ch);
+				canvas1[0].width=cw;
+				canvas1[0].height=ch;
+				canvas1[0].getContext("2d").drawImage($('#index-main-bg')[0], 0, 0, iw, ih, 0, 0, cw, ch);
+				canvas1.css( { position: 'absolute', left: '0px', top: ct + 'px' } );
+				$('#index-bg').css( { display: 'none' } );
+				$('body').append( canvas1 );
+				canvas1.fadeIn(10);
+				var indexbg  = setInterval(function(){
+				canvas1.fadeOut(3000,function(e){
+							$("#index-bg").fadeOut(1000,function(e){
+								clearInterval(indexbg);
+								$("#index-bg").remove();
+								$('.dark-loader-train').css('width','0%');
+							});
+						});
+				},3000);
+			}
+			setInterval( "slideSwitch()", 7000 );
+		});
+		// setInterval( "slideSwitch()", 7000 );
+	});
+	
+	
+	
+	// setInterval( "slideSwitch()", 7000 );
+	setCustomScrollbar();
+
+	var default_margin = $('.menu-line').css('margin-left'),
+	speed = 'normal',
+	effect = '';
+	$(document).on('mouseenter','.menu-tab',function(e){
+		default_margin = $('.menu-line').css('margin-left');
+		m_val = $(this).attr('tab');
+		if(m_val==0){return false;}
+		m_val = (m_val-1)*33.3;
+		$('.menu-line').stop(true, false).animate({marginLeft:m_val+'%'},speed,effect);
+	});
+	
+	$(document).on('click','.menu-tab',function(e){
+		var dth='',i = 0;
+		switch($(this).attr('tab'))
+		{
+			case '0':
+				$('#pro-container').fadeOut();
+				while(i<$('.project-class').length)
+				{
+					if($('.project-class:eq('+i+')').css('height')!='0px')
+					{
+						dth = $('.project-class:eq('+i+')').attr('id');
+					}
+					i++;
+				}
+				if(dth!='')
+				{					
+					$('#'+dth).stop(true,false).animate({height:'0px'},function(e){
+						$('.project-down-arrow').hide();
+						$('.project-up-arrow').hide();
+						$('#new-project-container').css('z-index','0');
+						$('div.menu-tab[tab=2] span').show();
+						$('#project-cont').fadeOut();
+					});
+				}
+				else
+				{
+					$('#project-cont').fadeOut();
+				}
+			break;
+			case '1':
+				$('#pro-container').fadeToggle();
+				while(i<$('.project-class').length)
+				{
+					if($('.project-class:eq('+i+')').css('height')!='0px')
+					{
+						dth = $('.project-class:eq('+i+')').attr('id');
+					}
+					i++;
+				}
+				if(dth!='')
+				{					
+					$('#'+dth).stop(true,false).animate({height:'0px'},function(e){
+						$('.project-down-arrow').hide();
+						$('.project-up-arrow').hide();
+						$('#new-project-container').css('z-index','0');
+						$('div.menu-tab[tab=2] span').show();
+						$('#project-cont').fadeOut();
+					});
+				}
+				else
+				{
+					$('#project-cont').fadeOut();
+				}
+			break;
+			case '2':
+				$('#clients').animate({height:'0px'},{duration:1000,easing:"easeOutCirc"});
+				$('#pro-container').fadeOut();
+				$('#project-cont').fadeToggle();
+			break;
+			case '3':
+				$('#pro-container').fadeOut();
+				while(i<$('.project-class').length)
+				{
+					if($('.project-class:eq('+i+')').css('height')!='0px')
+					{
+						dth = $('.project-class:eq('+i+')').attr('id');
+					}
+					i++;
+				}
+				if(dth!='')
+				{					
+					$('#'+dth).stop(true,false).animate({height:'0px'},function(e){
+						$('.project-down-arrow').hide();
+						$('.project-up-arrow').hide();
+						$('#new-project-container').css('z-index','0');
+						$('div.menu-tab[tab=2] span').show();
+						$('#project-cont').fadeOut();
+					});
+				}
+				else
+				{
+					$('#project-cont').fadeOut();
+				}
+			break;
+		}
+	});
+	
+	$(document).on('click','.profile-sub.client a',function(e){
+		
+		var parentholder = $("#new-client-container");
+		var menuid = $(this).parent().attr('forid');
+		var dth='',i = 0;
+		scrollsubsto = 0;
+		/*if(menuid=='clients'){whichproject=0;}*/
+		
+		/*$('.project-down-arrow').css('background','url("images/project-arrow-down.png") no-repeat scroll 0 0 transparent');
+		$('.project-down-arrow').attr('side','down');*/
+		// $(this).parent().children().eq(0).attr( "style" , "border-bottom:1px solid #A29992" );
+		
+		parentholder.find('.scroller-div').mCustomScrollbar("scrollTo","top");
+		while(i<parentholder.find('.project-class').length)
+		{
+			if(parentholder.find('.project-class:eq('+i+')').css('height')!='0px')
+			{
+				dth = parentholder.find('.project-class:eq('+i+')').attr('id');
+			}
+			i++;
+		}
+		if(dth!='')
+		{		
+			$('#'+dth).stop(true,false).animate({height:'0px'},function(e){
+				parentholder.find('.project-down-arrow').hide();
+				parentholder.find('.project-up-arrow').hide();
+				if(dth!=menuid)
+				{
+					parentholder.find('.project-down-arrow').show();
+					parentholder.find('.project-up-arrow').show();
+					<!-- parentholder.css('z-index','10'); -->
+					var heightset = parentholder.find('#'+menuid).find('a.main-link').length;
+					heightset = (17*heightset)+22;
+					heightset = heightset>240 ? 240:heightset;
+					$('#'+menuid).css('max-height','250px');
+					heightset = heightset + 23;
+					$('#'+menuid).animate({height:heightset},{duration:1000,easing:"easeOutCirc"});
+				}
+				else
+				{
+					parentholder.find('.project-down-arrow').hide();
+					parentholder.find('.project-up-arrow').hide();
+					parentholder.css('z-index','0');
+				}
+			});
+		}
+		else
+		{
+			parentholder.find('.project-down-arrow').show();
+			parentholder.find('.project-up-arrow').show();
+			<!-- parentholder.css('z-index','10'); -->
+			var heightset = parentholder.find('#'+menuid).find('a.main-link').length;
+			heightset = (17*heightset)+22;
+			heightset = heightset>240 ? 240:heightset;
+			heightset = heightset + 23;
+			$('#'+menuid).animate({height:heightset},{duration:1000,easing:"easeOutCirc"});
+		}
+	});
+	
+$(document).on('click','.project-sub a',function(e){
+	var menuid = $(this).parent().attr('forid');
+	var dth='',i = 0;
+	scrollsubsto = 0;
+	var breakword = 0;
+	
+	
+	if(menuid=='hospitality'){whichproject=0;}
+	else if(menuid=='commercial'){whichproject=1;}
+	else if(menuid=='residential'){whichproject=2;}
+	else if(menuid=='healthcare'){whichproject=3;}
+	else if(menuid=='institutional'){whichproject=4;}
+	else if(menuid=='urbanplanning'){whichproject=5;}
+	else if(menuid=='recreational'){whichproject=6;}
+
+	$('.project-down-arrow').css('background','url("images/project-arrow-down.png") no-repeat scroll 0 0 transparent');
+	$('.project-down-arrow').attr('side','down');
+
+	$('.scroller-div').mCustomScrollbar("scrollTo","top");
+	
+	while(i<$('.project-class').length)
+	{
+		if($('.project-class:eq('+i+')').css('height')!='0px')
+		{
+			dth = $('.project-class:eq('+i+')').attr('id');
+		}
+		i++;
+	}
+	
+	if(dth!='')
+	{
+		console.debug("in 1");
+
+		$('#'+dth).stop(true,false).animate({height:'0px'},function(e){
+			$('.project-down-arrow').hide();
+			$('.project-up-arrow').hide();
+			if(dth!=menuid)
+			{
+				// hide all sublinks divs
+				$('#hospitality_hotels_sublinks').hide();
+				$('#commercial_aviation_sublinks').hide();
+				$('#commercial_retail_sublinks').hide();
+				$('#commercial_offices_sublinks').hide();
+				
+				if($('#'+menuid).find("a.main-link").length>11){
+					$('.project-down-arrow').show();
+					$('.project-up-arrow').show();
+				}
+				
+				$('#new-project-container').css('z-index','10');
+				var heightset = $('#'+menuid).find('a.main-link').length;
+
+				// loop through all sublinks/ mainlinks and check if linebreaks are there
+				for( var i = 0; i < $('#'+menuid).find("a.main-link").length; i++ )
+				{
+					if( $('#'+menuid).find("a.main-link").eq( i ).html().length > 77 )
+					{
+						breakword = breakword + 1;
+					}
+				}
+				
+				heightset = heightset + breakword;
+
+				heightset = (17*heightset)+20;
+				heightset = heightset>240 ? 240:heightset;
+				$('#'+menuid).css('max-height','250px');
+				heightset = heightset + 12;
+
+				if(whichproject == 2)
+				heightset += 15;
+
+				if(whichproject != 6)
+				heightset += 8;
+
+				if(heightset > 250)
+				heightset = 250;
+
+				$('#'+menuid).animate({height:heightset},{duration:1000,easing:"easeOutCirc"});
+			}
+			else
+			{
+				$('.project-down-arrow').hide();
+				$('.project-up-arrow').hide();
+				$('#new-project-container').css('z-index','0');
+				$('div.menu-tab[tab=2] span').fadeIn('fast');
+
+			}
+		});
+	}
+	else
+	{
+		console.debug("in 2");
+
+		$('div.menu-tab[tab=2] span').fadeOut('fast',function(e){
+		
+			if($('#'+menuid).find("a.main-link").length>11){
+				$('.project-down-arrow').show();
+				$('.project-up-arrow').show();
+			}
+			
+			$('#new-project-container').css('z-index','10');
+			var heightset = $('#'+menuid).find('a.main-link').length;
+			console.debug("heightset : " + heightset);
+			// hide all sublinks divs
+			$('#hospitality_hotels_sublinks').hide();
+			$('#commercial_aviation_sublinks').hide();
+			$('#commercial_retail_sublinks').hide();
+			$('#commercial_offices_sublinks').hide();
+
+			// loop through all sublinks/ mainlinks and check if linebreaks are there
+			for( var i = 0; i < $('#'+menuid).find("a.main-link").length; i++ )
+			{
+				if( $('#'+menuid).find("a.main-link").eq( i ).html().length > 77 )
+				{
+					breakword = breakword + 1;
+				}
+			}
+			
+			heightset = heightset + breakword;
+
+			heightset = (17*heightset)+20;
+			heightset = heightset>240 ? 240:heightset;
+			heightset = heightset + 12;
+
+			if(whichproject == 2)
+			heightset += 15;
+
+			if(whichproject != 6)
+			heightset += 10;
+
+
+			if(heightset > 250)
+			heightset = 250;
+
+			$('#'+menuid).css('max-height','250px');
+			$('#'+menuid).animate({height:heightset},{duration:1000,easing:"easeOutCirc"});
+		});
+	}
+	//alert(dth+'+'+menuid);
+
+});
+	$(document).on('click','.data-head.project',function(e){
+			var dataheight = $('.content-wrapper').css('height');
+			if(dataheight=='40px')
+			{
+				$('.content-wrapper').stop(true,false).animate({height:'460px'});
+				$('.data').slideDown();
+				$('.project-gallery').show();
+				$('.data-head img').attr('src','images/u-arrow-hover.png');
+			}
+			else
+			{
+				$('.content-wrapper').stop(true,false).animate({height:'40px'});
+				$('.data').slideUp();
+				$('.project-gallery').hide();
+				$('.data-head img').attr('src','images/d-arrow-hover.png');
+			}
+		});
+	$(document).on('mouseover','.data-head',function(e){
+		var imagename = $(this).find('span.arrow img').attr('src');
+		/* if(imagename == 'images/u-arrow.png')
+		{
+			$(this).find('span.arrow img').attr('src','images/u-arrow-hover.png');
+		}
+		else if(imagename == 'images/d-arrow.png')
+		{
+			$(this).find('span.arrow img').attr('src','images/d-arrow-hover.png');
+		}
+		else if(imagename == 'images/u-arrow-hover.png')
+		{
+			$(this).find('span.arrow img').attr('src','images/u-arrow-hover.png');
+		}
+		else if(imagename == 'images/d-arrow-hover.png')
+		{
+			$(this).find('span.arrow img').attr('src','images/d-arrow-hover.png');
+		} */
+	});
+	$(document).on('mouseout','.data-head',function(e){
+		var imagename = $(this).find('span.arrow img').attr('src');
+		/* if(imagename == 'images/u-arrow-hover.png')
+		{
+			$(this).find('span.arrow img').attr('src','images/u-arrow.png');
+		}
+		else if(imagename == 'images/d-arrow-hover.png')
+		{
+			$(this).find('span.arrow img').attr('src','images/d-arrow.png');
+		}
+		else if(imagename == 'images/u-arrow.png')
+		{
+			$(this).find('span.arrow img').attr('src','images/u-arrow.png');
+		}
+		else if(imagename == 'images/d-arrow.png')
+		{
+			$(this).find('span.arrow img').attr('src','images/d-arrow.png');
+		} */
+	});
+	
+	$(document).on('mouseover','.rightarrow img',function(e){
+		var imageid = $(this).attr('id');
+		if(imageid == 'leader-left')
+		{
+			$(this).attr('src','images/left_hover.png');
+			$(this).css('opacity','1');
+		}
+		else
+		{
+			$(this).attr('src','images/right_hover.png');
+			$(this).css('opacity','1');
+		}
+	});
+	$(document).on('mouseout','.rightarrow img',function(e){
+		var imageid = $(this).attr('id');
+		if(imageid == 'leader-left')
+		{
+			$(this).attr('src','images/left.png');
+			$(this).css('opacity','0.8');
+		}
+		else
+		{
+			$(this).attr('src','images/right.png');
+			$(this).css('opacity','0.8');
+		}
+	});
+	
+	
+	/**** fancy box script *****/
+	/* $(document).on('click','#architecture_update',function(e){
+		var img_src_arr = [ 'images/Press_images/2.jpg', 'images/Press_images/Architect & Interiors India, (April, 2009)_1.jpeg', 'images/Press_images/Architect & Interiors India, (April, 2009)_2.jpeg', 'images/Press_images/Architect & Interiors India, (April, 2009)_3.jpg', 'images/Press_images/Architecture_Update .jpg', 'images/Press_images/BBC_Good_Homes.jpg', 'images/Press_images/BUSINESS STANDARD.jpg', 'images/Press_images/Construction Week (December, 2008).JPG', 'images/Press_images/DESIGN TODAY 2.jpg', 'images/Press_images/DESIGN TODAY.jpg', 'images/Press_images/Express_Hospitality-1.jpg', 'images/Press_images/Financial Express (October, 2008).JPG', 'images/Press_images/FINANCIAL EXPRESS 02.jpg', 'images/Press_images/GRAPHITTI - THE TELEGRAPH MAGAZINE.jpg', 'images/Press_images/HINDUSTAN TIME CITY.jpg', 'images/Press_images/HINDUSTAN TIME CITY 2.jpg', 'images/Press_images/HINDUSTAN TIME CITY 3.jpeg', 'images/Press_images/HINDUSTAN TIME ESTATE .jpg', 'images/Press_images/Home Review.jpg', 'images/Press_images/India today - Simply Mumbai-(September, 2008).jpg', 'images/Press_images/Indian Architect & Builder (May, 1997).jpg', 'images/Press_images/INDIAN EXPRESS.jpg', 'images/Press_images/INDIAN PR WRIRE.jpg', 'images/Press_images/Khaleej Times (October, 2012).JPG', 'images/Press_images/LIQUID.jpg', 'images/Press_images/LOKSATTA .jpg', "images/Press_images/MAN'S WORLD, aug 2007.jpg", 'images/Press_images/PANJAB KESARI.jpg', 'images/Press_images/Prajavani-(Nov, 2008).JPG', 'images/Press_images/SOCIETY INTERIORS .jpg', 'images/Press_images/The asian Age.jpeg', 'images/Press_images/THE HINDU.jpg', 'images/Press_images/THE MAN.jpg', 'images/Press_images/THE TIMES OF INDIA.jpg', 'images/Press_images/Times_Property.jpg', 'images/Press_images/TimesProperty-(dec, 2008).JPG' ];
+
+		var index = 0;
+
+		var _img = $(this).parent().find('img');
+		if(_img)
+		{
+			var _src = $(_img).attr('src');
+
+			_src = _src.replace( '/thumbs', '' );
+
+			var _x = $.inArray(_src, img_src_arr);
+			if(_x != -1)
+			index = _x;
+		}
+			
+		$.fancybox([
+			{
+				href: 'images/Press_images/2.jpg',
+				title : '2'
+			},
+			{
+				href: 'images/Press_images/Architect & Interiors India, (April, 2009)_1.jpeg',
+				title : 'Architect & Interiors India (April, 2009)'
+			},
+			{
+				href: 'images/Press_images/Architect & Interiors India, (April, 2009)_2.jpeg',
+				title : 'Architect & Interiors India (April, 2009)'
+			},
+			{
+				href: 'images/Press_images/Architect & Interiors India, (April, 2009)_3.jpg',
+				title : 'Architect & Interiors India (April, 2009)'
+			},
+			{
+				href: 'images/Press_images/Architecture_Update .jpg',
+				title : 'Architecture Update'
+			},
+			{
+				href: 'images/Press_images/BBC_Good_Homes.jpg',
+				title : 'BBC Good Homes'
+			},
+			{
+				href: 'images/Press_images/BUSINESS STANDARD.jpg',
+				title : 'Business Standard'
+			},
+			{
+				href: 'images/Press_images/Construction Week (December, 2008).JPG',
+				title : 'Construction Week (December, 2008)'
+			},
+			{
+				href: 'images/Press_images/DESIGN TODAY 2.jpg',
+				title : 'Design Today'
+			},
+			{
+				href: 'images/Press_images/DESIGN TODAY.jpg',
+				title : 'Design Today'
+			},
+			{
+				href: 'images/Press_images/Express_Hospitality-1.jpg',
+				title : 'Express Hospitality'
+			},
+			{
+				href: 'images/Press_images/Financial Express (October, 2008).JPG',
+				title : 'Financial Express (October, 2008)'
+			},
+			{
+				href: 'images/Press_images/FINANCIAL EXPRESS 02.jpg',
+				title : 'Financial Express'
+			},
+			{
+				href: 'images/Press_images/GRAPHITTI - THE TELEGRAPH MAGAZINE.jpg',
+				title : 'Graphitti - The Telegraph Magazine'
+			},
+			{
+				href: 'images/Press_images/HINDUSTAN TIME CITY.jpg',
+				title : 'Hindustan Time City'
+			},
+			{
+				href: 'images/Press_images/HINDUSTAN TIME CITY 2.jpg',
+				title : 'Hindustan Time City'
+			},
+			{
+				href: 'images/Press_images/HINDUSTAN TIME CITY 3.jpeg',
+				title : 'Hindustan Time City'
+			},
+			{
+				href: 'images/Press_images/HINDUSTAN TIME ESTATE .jpg',
+				title : 'Hindustan Time Estate'
+			},
+			{
+				href: 'images/Press_images/Home Review.jpg',
+				title : 'Home Review'
+			},
+			{
+				href: 'images/Press_images/India today - Simply Mumbai-(September, 2008).jpg',
+				title : 'India Today - Simply Mumbai-(September, 2008)'
+			},
+			{
+				href: 'images/Press_images/Indian Architect & Builder (May, 1997).jpg',
+				title : 'Indian Architect & Builder (May, 1997)'
+			},
+			{
+				href: 'images/Press_images/INDIAN EXPRESS.jpg',
+				title : 'Indian Express'
+			},
+			{
+				href: 'images/Press_images/INDIAN PR WRIRE.jpg',
+				title : 'Indian PR Wrire'
+			},
+			{
+				href: 'images/Press_images/Khaleej Times (October, 2012).JPG',
+				title : 'Khaleej Times (October, 2012)'
+			},
+			{
+				href: 'images/Press_images/LIQUID.jpg',
+				title : 'Liquid'
+			},
+			{
+				href: 'images/Press_images/LOKSATTA .jpg',
+				title : 'Loksatta'
+			},
+			{
+				href: "images/Press_images/MAN'S WORLD, aug 2007.jpg",
+				title : 'Man\'s World (August 2007)'
+			},
+			{
+				href: 'images/Press_images/PANJAB KESARI.jpg',
+				title : 'Panjab Kesari'
+			},
+			{
+				href: 'images/Press_images/Prajavani-(Nov, 2008).JPG',
+				title : 'Prajavani (November, 2008)'
+			},
+			{
+				href: 'images/Press_images/SOCIETY INTERIORS .jpg',
+				title : 'Society Interiors '
+			},
+			{
+				href: 'images/Press_images/The asian Age.jpeg',
+				title : 'The Asian Age'
+			},
+			{
+				href: 'images/Press_images/THE HINDU.jpg',
+				title : 'The Hindu'
+			},
+			{
+				href: 'images/Press_images/THE MAN.jpg',
+				title : 'The Man'
+			},
+			{
+				href: 'images/Press_images/THE TIMES OF INDIA.jpg',
+				title : 'The Times of India'
+			},
+			{
+				href: 'images/Press_images/Times_Property.jpg',
+				title : 'Times Property'
+			},
+			{
+				href: 'images/Press_images/TimesProperty-(dec, 2008).JPG',
+				title : 'TimesProperty (December, 2008)'
+			}
+		], {
+			padding: 0,
+			index: index
+		});
+	}); */
+	/***** fancy box end ******/
+	
+	$(document).on('click','#image-holder div div img',function(e){
+		var prev_active_count = $("#image-holder.active div div.active").parent('div.img').index();
+		var cur_elemnt = $(this);
+		$("#image-holder.active div div").removeClass("active");
+		cur_elemnt.parent().addClass("active");
+		var prothumb2 = cur_elemnt.parents('#pro-image-wrapper').find('div.img').length;
+		if(prothumb2 > 7){
+			var current_active_count = $("#image-holder.active div div.active").parent('div.img').index();
+			var active_diff = 0;
+			/*if(current_active_count > prev_active_count){
+				active_diff = current_active_count - prev_active_count;
+			}
+			else{
+				active_diff = prev_active_count - current_active_count;
+			}*/
+			if($(this).parents('.img').index()==0){
+				prevtemp=0;
+			}
+			else{
+				active_diff = current_active_count - prev_active_count;
+			}
+			if(projectNav == 'next' || projectNav == undefined){
+				var check_to_scroll = current_active_count/7;
+				check_to_scroll_str = check_to_scroll.toString();
+				if(prevtemp <=6 && prevtemp >=0 ){
+					prevtemp = prevtemp + active_diff;
+					if(prevtemp>6){
+						prevtemp=6;
+					}
+					
+				}
+				if(prevtemp == 6){	
+				
+					if(current_active_count >= 7 ){
+						scroll_hr_width = 72*(current_active_count-6);
+						/* cur_elemnt.parents('#pro-image-wrapper').mCustomScrollbar("scrollTo",scroll_hr_width, {horizontalScroll: true}); */
+					}
+				}
+				if(current_active_count == 0){
+					scroll_hr_width = 0;
+					/* cur_elemnt.parents('#pro-image-wrapper').mCustomScrollbar("scrollTo",'first', {horizontalScroll: true}); */
+					prevtemp = 0;
+				}
+				/*if(check_to_scroll_str.indexOf('.') === -1){
+					var scroll_hr_width = 72;
+					scroll_hr_width = scroll_hr_width*current_active_count;
+					$('#pro-image-wrapper').mCustomScrollbar("scrollTo",scroll_hr_width, {horizontalScroll: true});
+				}*/
+			}
+			else{
+				if(prevtemp==0){
+					var prev_scroll = current_active_count*72
+					/* cur_elemnt.parents('#pro-image-wrapper').mCustomScrollbar("scrollTo",prev_scroll, {horizontalScroll: true}); */
+				}
+				else{
+					prevtemp = prevtemp + active_diff;
+				}
+				if(current_active_count==(prothumb2-1)){
+					prevtemp = 6;
+				}
+				/*alert(current_active_count);
+				var check_to_scroll = current_active_count/7;
+				check_to_scroll_str = check_to_scroll.toString();
+				if(check_to_scroll_str.indexOf('.') === -1){
+					var scroll_hr_width = 72;
+					scroll_hr_width = scroll_hr_width*current_active_count;
+					$('#pro-image-wrapper').mCustomScrollbar("scrollTo",scroll_hr_width, {horizontalScroll: true});
+				}*/
+			}
+		}
+		projectNav = 'next';
+		var src = $(this).attr('src');
+		src = src.split("/");
+		console.log( src[ 1 ] );
+		console.log( src[ 0 ] + "/" + src[ 1 ] + "/" + src[ 2 ] + "/" + src[ 3 ] + "/" + src[ 4 ] + "/" + src[ 6 ]  );
+		$("#leadershow img:not(:last)").addClass('useless');
+		$('#leadershow').append('<img src="' + src[ 0 ] + "/" + src[ 1 ] + "/" + src[ 2 ] + "/" + src[ 3 ] + "/" + src[ 4 ] + "/" + src[ 6 ] + '" alt="Slideshow Image 1" class="active" />');
+		
+		//$("#leadershow img:last").stop().animate({opacity:0},2500,function(e){});
+		$("#leadershow img:last").css('opacity','0');
+		$("#leadershow img:last").animate({opacity:1},2000,function(e){
+			//$("#leadershow img:not(:last):not(:nth-last-child(2))").delay(3000).remove();
+			$('#leadershow img.useless').remove();
+		});
+		
+		
+	});
+	
+	
+	var count=0,slide_speed = 300;
+	/* $(document).off('click','.new_leader_detail_single').on('click','.new_leader_detail_single',function(e){ */
+	$(document).find('.new_leader_detail_single').click(function(e){
+		var show_desc = $(this).attr('desc');
+		$('.new_leader_detail_left').removeClass('active');
+		$('.new_leader_detail_left').css('z-index','1000');
+		$(this).parent().css('z-index','1001');
+		$(this).parent().addClass('active');
+		$('.new_leader_detail_left:eq(0)').stop(true,false).animate({marginLeft: '0px'}, slide_speed, showHideHead);
+		$('.new_leader_detail_left:eq(1)').stop(true,false).animate({marginLeft: (-(($('.new_leader_detail_left').width())*1))}, slide_speed, showHideHead);
+		$('.new_leader_detail_left:eq(2)').stop(true,false).animate({marginLeft: (-(($('.new_leader_detail_left').width())*1))}, slide_speed, showHideHead);
+		$('.new_leader_detail_left:eq(3)').stop(true,false).animate({marginLeft: (-(($('.new_leader_detail_left').width())*1))}, slide_speed, function(e){
+			showHideHead();
+			$('#'+show_desc).fadeIn(slide_speed);
+		});
+	});
+	
+	/* $(document).off('click','#close_box').on('click','#close_box',function(e){  */
+	$(document).find('#close_box').click(function(e){
+		$('.new_leader_detail_left').removeClass('active');
+		$('.new_leader_detail_left').css('z-index','1000');
+		$('.new_leader_detail_right').hide();
+		$('.new_leader_detail_left .new_leader_detail_single .new_leader_text_holder').show();
+		$('.new_leader_detail_left:eq(0)').stop(true,false).animate({marginLeft: '55px'}, slide_speed,function(e){});
+		$('.new_leader_detail_left:gt(0)').stop(true,false).animate({marginLeft: '20px'}, slide_speed,function(e){});
+	});
+	cur_project='';count_click=0;
+	var prothumb;
+	$(document).on('click','.data-head.projectheadnew',function(e){
+		/* if(count_click==0){
+			count_click=1;
+			$('.content-wrapper').not(this).animate({height:'40px'},function(e){
+				parent.css('overflow','auto');
+			});
+			$('.data').slideUp();
+			$('.project-gallery').hide();
+			$('.data-head img').attr('src','images/d-arrow.png');
+			var parent = $(this).parent('.content-wrapper');
+			var dataheight = parent.css('height');
+			$(this).parent().find('.arrow').show();
+			$(this).parent().find('.cross').hide();
+			if(dataheight=='40px')
+			{
+				$(this).parent().siblings('.content-wrapper').slideUp().fadeOut();
+				if($(this).parent('[small=true]')!=undefined){
+					parent.stop(true,false).animate({height:'120px'},function(e){
+						parent.css('overflow','auto');
+						prothumb = $(this).find('#pro-image-wrapper').find('div.img').length;
+						if(prothumb > 7 && !$(this).find("#pro-image-wrapper").hasClass("mCustomScrollbar")){
+							$(this).find('#pro-image-wrapper').css('max-width','93.3%');
+							$(this).find("#pro-image-wrapper").mCustomScrollbar({
+								scrollButtons:{
+									enable:false
+								},
+								horizontalScroll:true,
+								DraggerRail:false,
+								autoDraggerLength:false,
+								contentTouchScroll:true,
+								advanced:{
+									updateOnBrowserResize:true,
+									updateOnContentResize:true
+								},
+								theme:"light-thin"
+							});
+						}
+					});
+				}
+				else{
+					parent.stop(true,false).animate({height:'460px'});
+				}
+				$(this).siblings('.project-gallery').show();
+				$('.project-gallery').find('[id=image-holder]').removeClass('active');
+				$(this).siblings('.project-gallery').find('[id=image-holder]').addClass('active');
+				$(this).siblings('.project-gallery').find('[id=image-holder] div div:first div img').trigger("click");
+				//if(typeof mainsliderinterval =="undefined")mainsliderinterval = setInterval("nextprojectimg()",7000);
+				$(this).find('img').attr('src','images/d-arrow.png');
+			}
+			else
+			{
+				parent.stop(true,false).animate({height:'40px'},function(e){
+					parent.css('overflow','auto');
+				});
+				$(this).siblings('.data').slideUp();
+				$(this).siblings('.project-gallery').hide();
+				$(this).find('img').attr('src','images/d-arrow.png');
+				$(this).parent().siblings('.content-wrapper').slideDown().fadeIn();
+			}
+		}
+		else if(count_click==1){
+			count_click=2;
+			var parent_div = $(this).parents('.content-wrapper');
+			parent_div.stop(true,false).animate({height:'205px'},function(e){
+				parent_div.css('overflow','auto');
+			});
+			parent_div.find('.data.datanew').slideDown();
+			$(this).find('.arrow').hide();
+			$(this).find('.cross').show();
+			
+			setTimeout(function() {
+				if( !closeClick )
+					$('.cross').trigger('click');
+			}, 5000);
+			
+		}
+		else if(count_click==2){
+			closeClick=true;
+			count_click=3;
+			$('.content-wrapper').not(this).animate({height:'40px'},function(e){
+				parent.css('overflow','auto');
+			});
+			$('.data').slideUp();
+			$('.project-gallery').hide();
+			$('.data-head img').attr('src','images/d-arrow.png');
+			var parent = $(this).parent('.content-wrapper');
+			var dataheight = parent.css('height');
+			$(this).parent().find('.arrow').show();
+			$(this).parent().find('.cross').hide();
+			if(dataheight=='40px')
+			{
+				$(this).parent().siblings('.content-wrapper').slideUp().fadeOut();
+				if($(this).parent('[small=true]')!=undefined){
+					parent.stop(true,false).animate({height:'120px'},function(e){
+						parent.css('overflow','auto');
+					});
+				}
+				else{
+					parent.stop(true,false).animate({height:'460px'});
+				}
+				$(this).siblings('.project-gallery').show();
+				$('.project-gallery').find('[id=image-holder]').removeClass('active');
+				$(this).siblings('.project-gallery').find('[id=image-holder]').addClass('active');
+				$(this).siblings('.project-gallery').find('[id=image-holder] div div:first div img').click();
+			}
+			else
+			{
+				parent.stop(true,false).animate({height:'40px'},function(e){
+					parent.css('overflow','auto');
+				});
+				$(this).siblings('.data').slideUp();
+				$(this).siblings('.project-gallery').hide();
+				$(this).find('img').attr('src','images/d-arrow.png');
+				$(this).parent().siblings('.content-wrapper').slideDown().fadeIn();
+			}
+		}
+		else if(count_click==3){
+			count_click = 2;
+			var parent_div = $(this).parents('.content-wrapper');
+			parent_div.stop(true,false).animate({height:'205px'},function(e){
+				parent_div.css('overflow','auto');
+			});
+			parent_div.find('.data.datanew').slideDown();
+			$(this).siblings('.project-gallery').show();
+			$(this).find('.arrow').hide();
+			$(this).find('.cross').show();
+			
+			/* setTimeout(function() {
+				$('.cross').trigger('click');
+			}, 5000);
+		} */
+		if(count_click==0){
+			count_click=2;
+			$('.content-wrapper').not(this).animate({height:'40px'},function(e){
+				parent.css('overflow','auto');
+			});
+			// $('.data').slideUp();
+			$('.project-gallery').hide();
+			$('.data-head img').attr('src','images/d-arrow.png');
+			var parent = $(this).parent('.content-wrapper');
+			var dataheight = parent.css('height');
+			$(this).parent().find('.arrow').show();
+			$(this).parent().find('.cross').hide();
+			$(this).parent().siblings('.content-wrapper').slideUp().fadeOut();
+			$(this).parent().find('.data.datanew').slideDown();
+			if($(this).parent('[small=true]')!=undefined){
+				parent.stop(true,false).animate({height:'205px'},function(e){
+					parent.css('overflow','auto');
+					prothumb = $(this).find('#pro-image-wrapper').find('div.img').length;
+					if(prothumb > 7 && !$(this).find("#pro-image-wrapper").hasClass("mCustomScrollbar")){
+						$(this).find('#pro-image-wrapper').css('max-width','93.3%');
+						$(this).find("#pro-image-wrapper").mCustomScrollbar({
+							scrollButtons:{
+								enable:false
+							},
+							horizontalScroll:true,
+							DraggerRail:false,
+							autoDraggerLength:false,
+							contentTouchScroll:true,
+							advanced:{
+								updateOnBrowserResize:true,
+								updateOnContentResize:true
+							},
+							theme:"light-thin"
+						});
+					}
+				});
+			}
+			else{
+				parent.stop(true,false).animate({height:'460px'});
+			}
+			$(this).siblings('.project-gallery').show();
+			$('.project-gallery').find('[id=image-holder]').removeClass('active');
+			$(this).siblings('.project-gallery').find('[id=image-holder]').addClass('active');
+			$(this).siblings('.project-gallery').find('[id=image-holder] div div:first div img').trigger("click");
+			//if(typeof mainsliderinterval =="undefined")mainsliderinterval = setInterval("nextprojectimg()",7000);
+			$(this).find('img').attr('src','images/d-arrow.png');
+			$(this).find('.arrow').hide();
+			$(this).find('.cross').show()
+			/* parent.stop(true,false).animate({height:'205px'},function(e){
+				parent.css('overflow','auto');
+			});
+			parent.find('.data.datanew').slideDown();
+			$(this).find('.arrow').hide();
+			$(this).find('.cross').show(); */
+		}
+		else if(count_click==2){
+			// closeClick=true;
+			count_click=0;
+			$('.content-wrapper').not(this).animate({height:'40px'},function(e){
+				parent.css('overflow','auto');
+			});
+			$('.data').slideUp();
+			$('.project-gallery').hide();
+			$('.data-head img').attr('src','images/d-arrow.png');
+			var parent = $(this).parent('.content-wrapper');
+			var dataheight = parent.css('height');
+			$(this).parent().find('.arrow').show();
+			$(this).parent().find('.cross').hide();
+			if(dataheight=='40px')
+			{
+				$(this).parent().siblings('.content-wrapper').slideUp().fadeOut();
+				if($(this).parent('[small=true]')!=undefined){
+					parent.stop(true,false).animate({height:'120px'},function(e){
+						parent.css('overflow','auto');
+					});
+				}
+				else{
+					parent.stop(true,false).animate({height:'460px'});
+				}
+				$(this).siblings('.project-gallery').show();
+				$('.project-gallery').find('[id=image-holder]').removeClass('active');
+				$(this).siblings('.project-gallery').find('[id=image-holder]').addClass('active');
+				$(this).siblings('.project-gallery').find('[id=image-holder] div div:first div img').click();
+			}
+			else
+			{
+				parent.stop(true,false).animate({height:'40px'},function(e){
+					parent.css('overflow','auto');
+				});
+				$(this).siblings('.data').slideUp();
+				$(this).siblings('.project-gallery').hide();
+				$(this).find('img').attr('src','images/d-arrow.png');
+				$(this).parent().siblings('.content-wrapper').slideDown().fadeIn();
+			}
+		}
+	});
+	
+	$(document).on('click','[page=project] *',function(e){
+		var ftrsbmenu = $(this).parents("[page=project]").find(".footer-submenu");
+
+		if( $(ftrsbmenu).hasClass('active') )
+		{
+			$(ftrsbmenu).removeClass('active')
+			$(ftrsbmenu).hide();
+			$(this).parent().find(".footer-main").parent().attr( "style", "background:none" );
+		}
+	}); 
+	
+	$(document).on('click','[page=profile] *',function(e){
+		var ftrsbmenu = $(this).parents("[page=profile]").find(".footer-submenu");
+
+		if( $(ftrsbmenu).hasClass('active') )
+		{
+			$(ftrsbmenu).removeClass('active')
+			$(ftrsbmenu).hide();
+			$(this).parent().find(".footer-main").parent().attr( "style", "background:none" );
+		}
+	}); 
+
+	
+	$(document).off('mouseover','[page=project] *').on('mouseover','[page=project] *',function(e){
+		// mouse over of project
+		//footer-main
+		/* var ftrsbmenu = $(this).parents("[page=project]").find(".footer-submenu");
+		var ftrsbmenu_mainlink_wd = ftrsbmenu.parent().find(".footer-main").width();
+		
+		var sublink_count = ftrsbmenu.find( ".sub-link" ).length;
+		for ( var i = 0; i < sublink_count; i++ )
+		{
+			if( ftrsbmenu.find( ".sub-link" ).eq(i).html().length > 12 )
+			{
+				var ftrsbmenu_width = ftrsbmenu_mainlink_wd + 10;
+			}
+			else
+			{
+				var ftrsbmenu_width =  ftrsbmenu_mainlink_wd;
+			}
+		}
+		$(ftrsbmenu).attr( "style" , "width:" + ftrsbmenu_width + "px" );
+		console.log( "ftrsbmenu_width: " + ftrsbmenu_width );
+		
+		if($(this).parent().siblings('[page=project]').find('.footer-submenu').hasClass('active')){
+			$(this).parent().siblings('[page=project]').find('.footer-submenu').removeClass('active').stop(true,false).animate({bottom:'22px',opacity:0,"padding-bottom":'5px'},function(e){
+				$(this).hide();
+			});
+		}
+		if(ftrsbmenu.hasClass('active')){
+			ftrsbmenu.show();
+		}
+		else{
+			ftrsbmenu.addClass('active').show().stop(true,false).animate({bottom:'22px',opacity:1,"padding-bottom":'5px'},function(e){
+			});
+		} */
+		
+		var ftrsbmenu = $(this).parents("[page=project]").find(".footer-submenu");
+		
+        if($(this).parent().siblings('[page=project]').find('.footer-submenu').hasClass('active')){	
+            $(this).parent().siblings('[page=project]').find('.footer-submenu').removeClass('active').stop(true,false).animate({bottom:'20px',opacity:0},function(e){
+				$(this).parent().find(".footer-main").parent().attr( "style", "background:none" );
+                $(this).hide();
+            });
+        }
+		
+		var main_menu_width = $(this).parent().find(".footer-main").width();
+		var extra_chars = [0];
+		var main_menu_chars = $(this).parent().find(".footer-main").html();
+		
+		var main_link_count = $(ftrsbmenu).find(".main-link").length;
+		// var sublink_count = $(ftrsbmenu).find(".sub-link").length;
+		var main_menu_length = 0 ;
+		if( typeof( main_menu_chars ) != 'object' )
+			main_menu_length = parseInt( main_menu_chars.length );
+		
+		// loop through all main links and sublinks to check if the text size is greater
+		var sublink_count = 0;
+		$(ftrsbmenu).find(".sub-link").each(function(){
+			if( $(this).is(':visible') )
+			{
+				sublink_count ++ ;
+				var sub_submenu_length = $(this).html().length;
+				if( sub_submenu_length > main_menu_length )
+				{
+					extra_chars.push( sub_submenu_length - main_menu_length ); 
+				}
+			}
+		});
+		
+		for ( var i = 0; i < main_link_count; i++ )
+		{
+			if( $(ftrsbmenu).find(".main-link").eq(i).html().length > 12 )
+			{
+				// calculate extra letters from main width 
+				var submenu_length = parseInt( $(ftrsbmenu).find(".main-link").eq(i).html().length );
+				if( main_menu_chars != null )
+				{
+					if( submenu_length > ( parseInt( main_menu_length ) + 3 ) ) // if characters of submenu are greater than main menu chars, calc the extra chars and increase the width.
+					{
+						extra_chars.push( submenu_length - main_menu_length ); 
+						// main_menu_width = main_menu_width + extra_chars;
+					}
+				}
+			}
+		}
+	
+		var extra_width = Math.max.apply(Math, extra_chars); 
+		
+		console.log( main_menu_chars );
+		// XTREME HACK
+		if( main_menu_chars == 'RESIDENTIAL' )
+			main_menu_width = 123;
+		else if( main_menu_chars == 'HEALTHCARE' )
+			main_menu_width = 169;
+		else if( main_menu_chars == 'INSTITUTIONAL' )
+			main_menu_width = 198;
+		else if( main_menu_chars == 'URBAN PLANNING' )
+			main_menu_width = 306;
+		else if( main_menu_chars == 'RECREATIONAL' )
+			main_menu_width = 254;
+		else
+			main_menu_width = main_menu_width + ( parseInt( extra_width ) * 3 );
+		
+	
+        if(ftrsbmenu.hasClass('active')){
+			$(this).parent().find(".footer-main").parent().attr( "style", "background:none repeat scroll 0 0 rgba(18, 15, 13, 0.8)" );
+			
+			// Hack: for small space between links, main_menu_width comes as null.. so check.. if it is null, then dont do anything else set width.. 
+			
+			if( typeof( main_menu_width ) != "object" )
+			{
+				// $(ftrsbmenu).attr( "style", "width: " + main_menu_width + "px" );
+				$(ftrsbmenu).width( main_menu_width + "px" );
+			}
+            ftrsbmenu.show();
+        }
+        else{
+			// to show
+			
+			$(this).parent().find(".footer-main").parent().attr( "style", "background:none repeat scroll 0 0 rgba(18, 15, 13, 0.8)" );
+			
+			// Hack: for small space between links, main_menu_width comes as null.. so check.. if it is null, then dont do anything else set width.. 
+			if( typeof( main_menu_width ) != "object" )
+			{
+				// $(ftrsbmenu).attr( "style", "width: " + main_menu_width + "px" );
+				$(ftrsbmenu).width( main_menu_width + "px" );
+			}
+			
+            ftrsbmenu.addClass('active').show().stop(true,false).animate({bottom:'20px',opacity:1},function(e){
+            });
+        }
+	});
+	
+	
+	
+	$(document).off('mouseout','[page=project] *').on('mouseout','[page=project] *',function(e){
+		if($(this).parents("[page=project]").find('.footer-submenu').hasClass('active')){
+			/*$(this).siblings('.footer-submenu').removeClass('active').show().animate({bottom:'0px',opacity:0},function(e){
+				$(this).hide();
+			});*/
+		}
+	});
+	
+	$(document).off('mouseover','[page=profile] *').on('mouseover','[page=profile] *',function(e){
+		// mouse over of key personal
+		var ftrsbmenu = $(this).parents("[page=profile]").find(".footer-submenu");
+		var ftrsbmenu_min_wd = $(ftrsbmenu).parent().find('.footer-main').width(); // set minimum width to width of main link
+		
+		var sublinks = $(ftrsbmenu).find( '.sub-link' );
+		for( var i = 0; i < $(sublinks).length; i++ )
+		{
+			var sublink_lt = $(sublinks).eq(i).html().length; // retrives the number of letters in a sublink
+			// if this number of letters is greater than 12 then increase the width
+			if( sublink_lt >= 12 )
+			{
+				var ftrsbmenu_wd = parseInt( ftrsbmenu_min_wd ) + parseInt( sublink_lt ) + 1;
+			}
+			else
+			{
+				var ftrsbmenu_wd = ftrsbmenu_min_wd;
+			}
+		}
+		
+		if($(this).parent().siblings('[page=profile]').find('.footer-submenu').hasClass('active')){
+			
+			$(this).parent().siblings('[page=profile]').find('.footer-submenu').removeClass('active').show().stop(true,false).animate({bottom:'22px',opacity:0,"padding-bottom":'5px',"min-width":ftrsbmenu_min_wd+"px",width: ftrsbmenu_wd+'px'},function(e){
+				$(this).hide();
+				$(this).parent().find(".footer-main").parent().attr( "style", "background:none" );
+				// the next inactive link hovered after the hover of active link
+			});
+		}
+		if(ftrsbmenu.hasClass('active')){
+			// on hover of submenu
+			ftrsbmenu.show();
+		}
+		else{
+			ftrsbmenu.addClass('active').show().stop(true,false).animate({bottom:'20px',opacity:1,"padding-bottom":'5px',"min-width":ftrsbmenu_min_wd+"px",width: ftrsbmenu_wd+'px'},function(e){
+				$(this).parent().find(".footer-main").parent().attr( "style", "background:none repeat scroll 0 0 rgba(18, 15, 13, 0.8)" );
+			// on hover of current menu
+			});
+		}
+	});
+	
+	
+	
+	$(document).off('mouseout','[page=profile] *').on('mouseout','[page=profile] *',function(e){
+		if($(this).parents("[page=profile]").find('.footer-submenu').hasClass('active')){
+			/*$(this).siblings('.footer-submenu').removeClass('active').show().animate({bottom:'0px',opacity:0},function(e){
+				$(this).hide();
+			});*/
+		}
+	});
+	
+	$(document).off('click','body').on('click','body',function(e){
+	
+		if(e.screenX && e.screenY && e.screenX!=0 && e.screenY!=0 && $('[page=project]').find('.footer-submenu').hasClass('active')){
+			$('[page=project]').find('.footer-submenu').removeClass('active').show().animate({bottom:'0px',opacity:0},function(e){
+				$(this).hide();
+			});
+		}
+		if(e.screenX && e.screenY && e.screenX!=0 && e.screenY!=0 && $('[page=profile]').find('.footer-submenu').hasClass('active')){
+			$('[page=project]').find('.footer-submenu').removeClass('active').show().animate({bottom:'0px',opacity:0},function(e){
+				$(this).hide();
+			});
+		}
+	});
+	
+	$(document).off("mousemove","[press=image]").on("mousemove","[press=image]",function(e){
+		if($(this).prev("img")){
+			$(this).prev("img").siblings("img").hide();
+			$(this).prev("img")/*.stop(1,1)*/.show().offset({
+				top: e.pageY ,
+				left: e.pageX + ($(this).prev("img").outerWidth()/4)
+			});
+		}		
+	});
+	$(document).off("mouseleave","[press=image]").on("mouseleave","[press=image]",function(e){
+		if($(this).prev("img")){
+			$(this).parent().find("img").hide();
+		}
+	});
+});
+var projectNav = 'next';
+var scrollobj = 0,scroll_hr_width = 72,prevtemp=0,next;
+function nextprojectimg()
+{
+	
+	/* projectNav = 'next';
+	clearInterval(mainsliderinterval);
+	if(!$("[id=image-holder].active").length){
+		$("[id=image-holder]").addClass('active');
+	}
+	var selected  =  $('[id=image-holder].active div div.img div.active');
+	
+	next = selected.parent().next().length?selected.parent().next():$("[id=image-holder].active div div.img:first");
+	
+	next.find("img").trigger('click');
+	
+	mainsliderinterval = setInterval("nextprojectimg()",7000); */
+	if($('#image-holder.active #pro-image-wrapper div.img').length>7){
+		totalimg = Math.floor($('#image-holder.active #pro-image-wrapper div.img').length/7);
+		if(projectscroller!=totalimg){
+			old_val = projectscroller;
+			projectscroller = projectscroller==totalimg?projectscroller:projectscroller+1;
+			scroll_hr_width_img = 72*7*(projectscroller);
+			if(projectscroller!=old_val)
+			$('#image-holder.active #pro-image-wrapper').mCustomScrollbar("scrollTo",scroll_hr_width_img, {horizontalScroll: true});
+		}
+	}
+}
+function prevprojectimg()
+{
+	/* projectNav = 'prev';
+	clearInterval(mainsliderinterval);
+	var selected  =  $('[id=image-holder].active div div.img div.active'),
+	prev = selected.parent().prev().length?selected.parent().prev():$("[id=image-holder].active div div.img:last");
+	prev.find("img").trigger('click');
+	mainsliderinterval = setInterval("nextprojectimg()",7000); */
+	
+	if($('#image-holder.active #pro-image-wrapper div.img').length>7){
+		if(projectscroller!=0){
+			old_val = projectscroller;
+			projectscroller--;
+			scroll_hr_width_img = 72*7*(projectscroller);
+			if(projectscroller!=old_val)
+			$('#image-holder.active #pro-image-wrapper').mCustomScrollbar("scrollTo",scroll_hr_width_img, {horizontalScroll: true});
+		}
+	}
+}
+function projectheadclick()
+{
+	var dataheight = $('.content-wrapper').css('height');
+	if(dataheight=='40px')
+	{
+		$('.content-wrapper').stop(true,false).animate({height:'460px'});
+		$('.data').slideDown();
+		$('.project-gallery').show();
+		$('.data-head img').attr('src','images/u-arrow.png');
+	}
+	else
+	{
+		$('.content-wrapper').stop(true,false).animate({height:'40px'});
+		$('.data').slideUp();
+		$('.project-gallery').hide();
+		$('.data-head img').attr('src','images/d-arrow.png');
+	}
+}
+var whichproject,subscrollamount=15, 
+	scrollsubsto=0;
+
+function scrollsubprojectup()
+{
+	$('.scroller-div:eq('+whichproject+')').mCustomScrollbar("scrollTo","first");	
+}
+
+function scrollsubprojectdown()
+{
+	 scrollsubsto=scrollsubsto+subscrollamount;
+	 $('.scroller-div:eq('+whichproject+')').mCustomScrollbar("scrollTo",scrollsubsto);
+}
+function scrollsubproject()
+{
+	// alert( 'scroll' );
+	if($('.project-down-arrow').attr('side')=='up')
+	{
+		$('.scroller-div:eq('+whichproject+')').mCustomScrollbar("scrollTo","first");
+		$('.project-down-arrow').attr('side','down');
+		$('.project-down-arrow').css('background','url("images/project-arrow-down.png") no-repeat scroll 0 0 transparent');
+		scrollsubsto = 100;
+	}
+	else
+	{
+		scrollsubsto=scrollsubsto+subscrollamount;
+		//$('.scroller-div').animate({scrollTop:scrollsubsto},1000);
+		$('.scroller-div:eq('+whichproject+')').mCustomScrollbar("scrollTo",scrollsubsto);
+		$('.project-down-arrow').attr('side','down');
+		$('.project-down-arrow').css('background','url("images/project-arrow-down.png") no-repeat scroll 0 0 transparent');
+	}
+}
+var prothumb;
+function nextprojectdetail()
+{
+	/* //currentProject
+	//projectselectclass
+	var checkArray;
+	if(projectselectclass=='hospitality'){checkArray=hospitalityArray;}
+	if(projectselectclass=='commercial'){checkArray=commercialArray;}
+	if(projectselectclass=='residential'){checkArray=residentialArray;}
+	if(projectselectclass=='healthcare'){checkArray=healthcareArray;}
+	if(projectselectclass=='institutional'){checkArray=institutionalArray;}
+	if(projectselectclass=='urban_planning'){checkArray=urban_planningArray;}
+	if(projectselectclass=='recreational'){checkArray=recreationalArray;}
+	var currentPos = $.inArray(currentProject,checkArray),
+		maxPos = (checkArray.length)-1;
+	currentPos++;
+	if(currentPos > maxPos){
+		currentPos = 0;
+	}
+	if($('body').find('a[id=temp_next_project]').attr('id') === undefined){
+		$('body').append('<a id="temp_next_project" href="'+checkArray[currentPos]+'.html" style="display:none;"></a>');
+	}
+	else{
+		$('body').find('a#temp_next_project').attr('href',checkArray[currentPos]+'.html');
+	}
+	$('a#temp_next_project').click(); */
+	
+	projectNav = 'next';
+	clearInterval(mainsliderinterval);
+	if(!$("[id=image-holder].active").length){
+		$("[id=image-holder]").addClass('active');
+	}
+	var selected  =  $('[id=image-holder].active div div.img div.active');
+	
+	next = selected.parent().next().length?selected.parent().next():$("[id=image-holder].active div div.img:first");
+	
+	next.find("img").trigger('click');
+	
+	mainsliderinterval = setInterval("nextprojectimg()",7000);
+}
+function prevprojectdetail()
+{
+	/* var checkArray;
+	if(projectselectclass=='hospitality'){checkArray=hospitalityArray;}
+	if(projectselectclass=='commercial'){checkArray=commercialArray;}
+	if(projectselectclass=='residential'){checkArray=residentialArray;}
+	if(projectselectclass=='healthcare'){checkArray=healthcareArray;}
+	if(projectselectclass=='institutional'){checkArray=institutionalArray;}
+	if(projectselectclass=='urban_planning'){checkArray=urban_planningArray;}
+	if(projectselectclass=='recreational'){checkArray=recreationalArray;}
+	var currentPos = $.inArray(currentProject,checkArray),
+		maxPos = (checkArray.length)-1;
+	currentPos--;
+	if(currentPos < 0){
+		currentPos = maxPos;
+	}
+	if($('body').find('a[id=temp_next_project]').attr('id') === undefined){
+		$('body').append('<a id="temp_next_project" href="'+checkArray[currentPos]+'.html" style="display:none;"></a>');
+	}
+	else{
+		$('body').find('a#temp_next_project').attr('href',checkArray[currentPos]+'.html');
+	}
+	$('a#temp_next_project').click(); */
+	projectNav = 'prev';
+	clearInterval(mainsliderinterval);
+	var selected  =  $('[id=image-holder].active div div.img div.active'),
+	prev = selected.parent().prev().length?selected.parent().prev():$("[id=image-holder].active div div.img:last");
+	prev.find("img").trigger('click');
+	mainsliderinterval = setInterval("nextprojectimg()",7000);
+}
+function showHideHead()
+{
+	$('.new_leader_detail_left .new_leader_detail_single .new_leader_text_holder').show();
+	$('.new_leader_detail_left .new_leader_detail_single .new_leader_text_holder .new_leader_desc').show();
+	$('.new_leader_detail_left:not(.active) .new_leader_detail_single .new_leader_text_holder').hide();
+	$('.new_leader_detail_left .new_leader_detail_single .new_leader_text_holder .new_leader_desc').hide();
+}
+function nextleader(){
+	var total_leader = $('.new_leader_detail_left').length;
+	var next_select = $('.new_leader_detail_left.active').next('.new_leader_detail_left').length?$('.new_leader_detail_left.active').next('.new_leader_detail_left'):$('.new_leader_detail_left:first');
+	$('#close_box').trigger('click');
+	$('.new_leader_desc').hide();
+	$(next_select).children('.new_leader_detail_single').trigger('click');
+}
+
+function prevleader(){
+	var total_leader = $('.new_leader_detail_left').length;
+	var prev_select = $('.new_leader_detail_left.active').prev('.new_leader_detail_left').length?$('.new_leader_detail_left.active').prev('.new_leader_detail_left'):$('.new_leader_detail_left:last');
+	$('#close_box').trigger('click');
+	$('.new_leader_desc').hide();
+	$(prev_select).children('.new_leader_detail_single').trigger('click');
+}
+var scroll_hr_width_img,projectscroller=0,totalimg,old_val;
+function nextprojectimagescroll()
+{
+	if($('#image-holder.active #pro-image-wrapper div.img').length>7){
+		totalimg = Math.floor($('#image-holder.active #pro-image-wrapper div.img').length/7);
+		if(projectscroller!=totalimg){
+			old_val = projectscroller;
+			projectscroller = projectscroller==totalimg?projectscroller:projectscroller+1;
+			scroll_hr_width_img = 72*7*(projectscroller);
+			if(projectscroller!=old_val)
+			$('#image-holder.active #pro-image-wrapper').mCustomScrollbar("scrollTo",scroll_hr_width_img, {horizontalScroll: true});
+		}
+	}
+}
+function prevprojectimagescroll()
+{
+	if($('#image-holder.active #pro-image-wrapper div.img').length>7){
+		if(projectscroller!=0){
+			old_val = projectscroller;
+			projectscroller--;
+			scroll_hr_width_img = 72*7*(projectscroller);
+			if(projectscroller!=old_val)
+			$('#image-holder.active #pro-image-wrapper').mCustomScrollbar("scrollTo",scroll_hr_width_img, {horizontalScroll: true});
+		}
+	}
+}
+</script>
+</head>
+<body style='overflow:hidden'>
+<div id="index-bg">
+<img id="index-main-bg" src="images/bma_texture_1_new.jpg" height="100%" />
+</div>
+<div id="mainslideshow" class="slideshow">		
+	<img src="images/bg1.jpg" alt="Slideshow Image 1" class="active"/>
+    <img src="images/bg2.jpg" alt="Slideshow Image 1" class="active"/>
+    <img src="images/bg3.jpg" alt="Slideshow Image 1" class="active"/>
+    <img src="images/bg4.jpg" alt="Slideshow Image 1" class="active"/>
+    <img src="images/bg5.jpg" alt="Slideshow Image 1" class="active"/>
+    <img src="images/bg6.jpg" alt="Slideshow Image 1" class="active"/>
+	
+</div>
+<div id="leadershow" class="slideshow"  style="display:none" >
+	<!-- <img src="images/boby.jpg" alt="Slideshow Image 1" class="active" />	 -->
+</div>
+<header id="header">
+	<div class="logo">
+		<a href="index.html">
+			<img src="images/logo.png" height="60px" width="150px" />
+		</a>
+	</div>
+</header>
+<section id="main-content">
+	<div class="changeablediv">
+		<div id="menu-wrapper">
+			<div id="new-project-container">
+				<div id="project-new">
+					<div id="hospitality" class="project-class" style="height:0px;overflow:hidden;">
+						<div><a class="new-head">HOSPITALITY</a></div>
+						<div id="hospitality-scroller" class="scroller-div">
+							<a class="main-link" onclick="show_project_sublinks( this, 'hospitality_architectural_sublinks', 'hospitality' );" href="#">Architectural </a><br>
+							<div id="hospitality_architectural_sublinks" style="display:none;"></div>
+							<a class="main-link" href="#" onclick="show_project_sublinks( this, 'hospitality_hotels_sublinks', 'hospitality' );">Hotels</a><br>
+							<div id="hospitality_hotels_sublinks" style="display:none;">
+								<div style="width:350px;"><a class="sub-link" href="cym_jaisalmer.html">CYM, Jaisalmer</a><br></div>
+								<div style="width:350px;"><a class="sub-link" href="hotel_ambhara_indonesia.html">Hotel Ambhara, Indonesia</a><br></div>
+								<div style="width:350px;"><a class="sub-link" href="hotel_in_indonesia.html">Hotel in Indonesia</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="le_meridien_new_delhi.html">Le Meridien, New Delhi</a><br></div>
+								<div style="width:350px;"><a class="sub-link" href="marriott_noida.html">Marriott, Noida</a><br></div>
+								<div style="width:350px;"><a class="sub-link" href="radisson_blue_west_delhi.html">Radisson Blu, West Delhi</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="the_lalit_ashok_bangalore.html">The Lalit Ashok, Bangalore</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="the_lalit_grand_palace_srinagar.html">The Lalit Grand Palace, Srinagar</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="the_lalit_kolkata.html">The Lalit, Kolkata</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="the_lalit_chandigarh.html">The Lalit, Chandigarh</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="the_lalit_jaipur.html">The Lalit, Jaipur</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="the_lalit_mumbai.html">The Lalit, Mumbai</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="the_lalit_new_delhi.html">The Lalit, New Delhi</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="the_marriott_jaipur.html">The Marriott, Jaipur</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="radisson_blu_dwarka.html">The Radisson Blu, Dwarka</a><br /></div>							
+								<div style="width:350px;"><a class="sub-link" href="the_sahara_star_mumbai.html">The Sahara Star, Mumbai</a><br /></div>
+							</div>
+							<a class="main-link" onclick="show_project_sublinks( this, 'hospitality_longuebars_sublinks', 'hospitality' );" href="#">Lounge Bars</a><br>
+							<div id="hospitality_longuebars_sublinks" style="display:none;">
+								<div style="width:350px;"><a class="sub-link" href="nero_bar_delhi.html">Nero Bar, Delhi</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="oro_bar_delhi.html">Oro Bar, Delhi</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="kitty_su_delhi.html">Kitty Su, Delhi</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="lounge_18_jaipur.html">Lounge 18, Jaipur</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="zepplin_delhi.html">Zeppelin, Delhi</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="ra_mumbai.html">Ra, Mumbai</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="club_escape.html">Club Escape</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="hrc_lagos_nigeria.html">HRC Lagos, Nigeria</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="shiro_restaurant_lagos.html">Shiro Restaurant, Lagos, Nigeria</a><br /></div>
+								
+							</div>
+					  </div>
+                    </div>
+					<div id="commercial" class="project-class" style="height:0px;overflow:hidden;">
+						<div><a class="new-head">COMMERCIAL</a></div>
+						<div id="commercial-scroller" class="scroller-div">
+							<a class="main-link" onclick="show_project_sublinks( this, 'commercial_aviation_sublinks', 'commercial' );" href="#">Aviation</a><br>
+							<div id="commercial_aviation_sublinks" style="display:none;">
+								<div style="width:350px;"><a class="sub-link" href="airport.html">Airport</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="aircraft_interior_exterior.html">Collage of Aircraft Exterior + Interior</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="sahara_air_longues.html">Collage of Sahara Air Lounges</a><br /></div>
+							</div>
+							
+							<a class="main-link" onclick="show_project_sublinks( this, 'commercial_offices_sublinks', 'commercial' );" href="#">Offices </a><br>
+							<div id="commercial_offices_sublinks" style="display:none;" ></div>
+							
+							<a class="main-link" onclick="show_project_sublinks( this, 'commercial_retail_sublinks', 'commercial' );" href="">Retail</a><br>
+							<div id="commercial_retail_sublinks" style="display:none;"></div>
+						</div>
+					</div>
+					<div id="residential" class="project-class" style="height:0px;overflow:hidden;">
+						<div>RESIDENTIAL</div>
+						<div id="residential-scroller" class="scroller-div">
+							<div style="width:350px;"><a class="main-link" href="santacruz.html">Santacruz</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="aamby_valley.html">Aamby Valley City </a><br />	</div>
+							<div style="width:350px;"><a class="main-link" href="khar.html">Khar</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="khandala.html">Khandala</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="napeansea_rd.html">Napeansea Road</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="residence_in_delhi.html">Residence in Delhi</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="indore.html">Indore</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="hyderabad.html">Hyderabad</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="show_flat_hiranandani_construct.html"> Show flat for Hiranandani Constructions</a><br /></div>
+                            <br>
+						</div>
+					</div>
+					<div id="healthcare" class="project-class" style="height:0px;overflow:hidden;">
+						<div><a class="new-head">HEALTHCARE</a></div>
+						<div id="recreational-scroller" class="scroller-div">
+							<div style="width:350px;"><a class="main-link" href="park_healthcare_hospital_hyderabad.html"> Park-Healthcare-Hospital, Hyderabad </a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="vijaya_diagnostics_hyderabad.html"> Vijaya-Diagnostics, Hyderabad</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="metropolis_laboratories_mumbai.html"> Metropolis-Laboratories, Mumbai</a><br /></div>
+							<br />
+						</div>
+					</div>
+					<div id="institutional" class="project-class" style="height:0px;overflow:hidden;">
+						<div><a class="new-head">INSTITUIONAL</a></div>
+						<div id="institutional-scroller" class="scroller-div">
+							<div style="width:350px;"><a class="main-link" href="whistling_woods_film_institute_mumbai.html">Whistling Woods Film Institute, Mumbai</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="hiranandani_foundation_international_school_chennai.html">Hiranandani Foundation International School, Chennai</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="somaiya_college_of_engg.html">Somaiya College of Engineering</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="auditorium_somaiya_institute_mumbai.html">Auditorium Somaiya Institute Mumbai</a><br /></div>
+							
+							<!-- <a class="sub-link" href="hiranandani.html">House Of Hiranandani</a><br />
+							<a class="sub-link" href="whislingwoods.html">Whistling Woods Film Institute</a><br /> -->
+
+						</div>
+					</div>
+					<div id="urbanplanning" class="project-class" style="height:0px;overflow:hidden;">
+						<div><a class="new-head">URBAN PLANNING</a></div>
+						<div id="urbanplanning-scroller" class="scroller-div">
+							<div style="width:350px;"><a class="main-link" href="aamby_valley_city_lonavala.html">Aamby Valley City, Lonavala </a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="master_planning_new_chattisgsarh.html">Master Planning for New Capital City of Chhattisgard</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="master_plan_backwards_of_kerala.html"> Master Plan for the Integrated Development of the backwaters of Kerala - Govt Kerala Dept of tourism</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="villa_development_at_mashobra_shimla.html">Villa Development at Mashobra, Shimla (India)</a><br /></div>
+						</div>
+					</div>
+                    <div id="recreational" class="project-class" style="height:0px;overflow:hidden;">
+						<div><a class="new-head">RECREATIONAL</a></div>
+						<div id="recreational-scroller" class="scroller-div">
+							<div style="width:350px;"><a class="main-link" href="the_raheja_exotica_madh_island.html">The Raheja Exotica, Madh Island</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="club_at_hiranandani_upscale_banglore.html">Club at Hiranandani Upscale, Bangalore</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="sahara_quest_city_club_5_star_india.html">Sahara Quest City Club + 5 Star Hotel, India</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="sahara_quest_country_club_5_star_india.html">Sahara Quest Country Club + 5 Star Resort, India </a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="tarangan_community_centre_thane.html">Tarangan Community Centre for Kalpataru Builders,<br>Thane (Near Mumbai)</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="club_house_at_tarangan_for_kalpataru_builders.html">Club house at Tarangan for Kalpataru Builders,	<br> Thane (Near Mumbai)</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="club_siddhanchal_for_kalpataru_builders_thane.html">Club Siddhachal for Kalpataru Builders, Thane</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="kalpataru_heights_mumbai.html">Kalpataru Heights, Mumbai</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="majas_clubhouse_for_kalpataru_builders_mumbai.html">Majas clubhouse for Kalpataru Builders, Mumbai </a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="karma_kshetra_clubhouse_for_kalpataru_builders.html">Karma Kshetra clubhouse for Kalpataru Builders, Mumbai</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="kalpataru_habitat.html">Kalpataru Habitat</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="clubhouse_for_k_raheja_corp_goa.html">Clubhouse for K.Raheja Corp., Goa</a><br /></div>
+							<div style="width:350px;"><a class="main-link" href="bptp_clubhouse_faridabad.html">BPTP Clubhouse, Faridabad</a><br /></div>
+						</div>
+					</div>
+                    
+				</div>
+				<div style="width:95px;margin-top: 8px;">
+					<div style="width:45px;margin:0 auto;">
+						<div class="project-down-arrow" onclick="scrollsubprojectdown();" style="display:none"></div>
+						<div class="project-up-arrow" onclick="scrollsubprojectup();" style="display:none"></div>
+						<div style="clear:both;"></div>
+					</div>
+				</div>
+			</div>      
+			<div id="new-client-container" style="z-index:0;left: 25%;margin-top: -248px;overflow: hidden;position: absolute;text-align: left;width: 200px;margin-left: -10px;">
+				<div id="project-new">
+					<div id="clients" class="project-class" style="height:0px;overflow:hidden;">
+						<div><a class="new-head">CLIENTS</a></div>
+						<div id="hospitality-scroller" class="scroller-div">
+							<!-- <a class="main-link" href="hospitality.html">Hopitality</a><br>
+							<a class="main-link" href="commercial.html">Commercial - Airport</a><br />
+							<a class="main-link" href="urban_planning.html">Urban Planning</a><br />
+							<a class="main-link" href="hospitality_loungebar.html">Hospitality - Loungebar</a><br />
+							<a class="main-link" href="commercial_offices.html">Commercial - Offices</a><br />
+							<a class="main-link" href="recreational.html">Recreational</a><br />
+							<a class="main-link" href="commercial_retail.html">Commercial - Retail</a><br />
+							<a class="main-link" href="menu_healthcare.html">Healthcare</a><br />
+							<a class="main-link" href="institutional.html">Institutional</a><br />
+							<a class="main-link" href="recreational1.html">Recreational</a><br />
+							<a class="main-link" href="residential.html">Residential</a><br /> -->
+							<a class="main-link" href="hospitality.html">Hospitality</a><br>
+							<a class="main-link" href="commercial.html">Commercial</a><br />
+							<a class="main-link" href="residential.html">Residential</a><br />
+							<a class="main-link" href="menu_healthcare.html">Healthcare</a><br />
+							<a class="main-link" href="institutional.html">Institutional</a><br />
+							<a class="main-link" href="urban_planning.html">Urban Planning</a><br />
+							<a class="main-link" href="recreational.html">Recreational</a><br />
+							
+					  </div>
+                    </div>
+				</div>
+			</div>
+			<div id="profile-menu">
+				<div id="pro-container">
+					<div class="profile-sub"><a href="philosophy.html">philosophy</a></div>
+					<div class="profile-sub"><a href="about_us.html">about us</a></div>
+					<div class="profile-sub"><a href="keypersonal.html">key personnel</a></div>
+					<div class="profile-sub client"  forid="clients"><a href="javascript:void(0)">clients</a></div>
+					<div class="profile-sub"><a href="press.html">press</a></div>
+					<div class="profile-sub"><a href="awards.html">awards</a></div>
+			  </div>
+		  </div>
+			<div id="project-menu">
+				<div id="project-cont">
+					<div class="project-sub" tab="zero" forid="hospitality"><a >hospitality</a></div>
+					<div class="project-sub" tab="one" forid="commercial"><a >commercial</a></div>
+					<div class="project-sub" tab="two" forid="residential"><a >residential</a></div>
+					<div class="project-sub" tab="three" forid="healthcare"><a >Healthcare</a></div>
+					<div class="project-sub" tab="four" forid="institutional"><a >Institutional</a></div>
+					<div class="project-sub" tab="five" forid="urbanplanning"><a >urban planning</a></div>
+                    <div class="project-sub" tab="five" forid="recreational"><a >Recreational</a></div>
+				</div>
+			</div>
+			<div class="menu-tab firstone" tab="0">
+				
+			</div>
+			<div class="menu-tab" tab="1" style="width: 25%;">
+				<!-- <a href="about_main.html"><span>profile</span></a> -->
+				<span>profile</span>
+			</div>
+			<div class="menu-tab menu-tab2" tab="2" style="width: 25%;">
+				<span>projects</span>
+			</div>
+			<div class="menu-tab" tab="3">
+				<a href="contact_us.html"><span>contact us</span></a>
+			</div>
+			<div id="menu-line-wrapper">
+				<div class="menu-line"></div>
+			</div>
+		</div>
+		</div>
+</section>
+<footer id="footer">
+	<div class="footer-wrapper">
+		<div class="footer-menu">
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="footer-main philosophy first" href="philosophy.html">PHILOSOPHY</a>
+			</div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="footer-main about_us first" href="about_us.html">ABOUT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="footer-main keypersonal" href="keypersonal.html">KEY PERSONNEL</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile"	>
+				<div class="footer-submenu" style="z-index:3;">
+					<a class="sub-link" style="margin: 0" href="hospitality.html">Hospitality</a><br />
+					<a class="sub-link" style="margin: 0" href="commercial.html">Commercial</a><br />
+					<a class="sub-link" style="margin: 0" href="residential.html">Residential</a><br />
+					<a class="sub-link" style="margin: 0" href="menu_healthcare.html">Healthcare</a><br />
+					<a class="sub-link" style="margin: 0" href="institutional.html">Institutional</a><br />
+					<a class="sub-link" style="margin: 0" href="urban_planning.html">Urban Planning</a><br />
+					<a class="sub-link" style="margin: 0" href="recreational.html">Recreational</a><br />
+				</div>
+				<a class="footer-main clients" href="javascript:void(0)">CLIENTS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="footer-main press" href="press.html">PRESS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="footer-main awards" href="awards.html">AWARDS</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<div class="footer-submenu"  style="padding-bottom:5px;" >
+					<a class="main-link" onclick="show_footer_project_sublinks( this, 'hospitality_architectural_sublinks', 'hospitality' );" href="architectural.html">Architectural </a><br>
+					<div id="hospitality_architectural_sublinks" style="display:none;"></div>
+					<a class="main-link" href="#" onclick="show_footer_project_sublinks( this, 'hospitality_hotels_sublinks', 'hospitality' );">Hotels</a><br>
+					<div id="hospitality_hotels_sublinks" style="display:none;">
+						<div style="width:350px;"><a class="sub-link" href="le_meridien.html">CYM, Jaisalmer</a><br></div>
+						<div style="width:350px;"><a class="sub-link" href="le_meridien.html">Hotel Ambhara, Indonesia</a><br></div>
+						<div style="width:350px;"><a class="sub-link" href="hotel_in_indonesia.html">Hotel in Indonesia</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="le_meridien.html">Le Meridien, New Delhi</a><br></div>
+						<div style="width:350px;"><a class="sub-link" href="le_meridien.html">Marriott, Noida</a><br></div>
+						<div style="width:350px;"><a class="sub-link" href="radisson_blu.html">Radisson Blu, West Delhi</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="the_lalit_ashok_bangalore.html">The Lalit Ashok, Bangalore</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="the_lalit_grand_palace_srinagar.html">The Lalit Grand Palace, Srinagar</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="the_lalit_kolkata.html">The Lalit, Kolkata</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="the_lalit_chandigarh.html">The Lalit, Chandigarh</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="the_lalit_jaipur.html">The Lalit, Jaipur</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="the_lalit_mumbai.html">The Lalit, Mumbai</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="the_lalit_new_delhi.html">The Lalit, New Delhi</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="the_marriott_jaipur.html">The Marriott, Jaipur</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="radisson_blu_dwarka.html">The Radisson Blu, Dwarka</a><br /></div>							
+						<div style="width:350px;"><a class="sub-link" href="the_sahara_star_mumbai.html">The Sahara Star, Mumbai</a><br /></div>
+					</div>
+					<a class="main-link" onclick="show_footer_project_sublinks( this, 'hospitality_longuebars_sublinks', 'hospitality' );" href="#">Lounge Bars</a><br>
+					<div id="hospitality_longuebars_sublinks" style="display:none;">
+						<div style="width:350px;"><a class="sub-link" href="nero_bar_delhi.html">Nero Bar, Delhi</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="oro_bar_delhi.html">Oro Bar, Delhi</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="kitty_su_delhi.html">Kitty Su, Delhi</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="lounge_18_jaipur.html">Lounge 18, Jaipur</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="zepplin_delhi.html">Zeppelin, Delhi</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="ra_mumbai.html">Ra, Mumbai</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="club_escape.html">Club Escape</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="hrc_lagos_nigeria.html">HRC Lagos, Nigeria</a><br /></div>
+						<div style="width:350px;"><a class="sub-link" href="shiro_restaurant_lagos.html">Shiro Restaurant, Lagos, Nigeria</a><br /></div>
+					</div>
+				</div>
+				<a class="footer-main hospitality first">HOSPITALITY</a>
+				<!-- <div class="footer-submenu">
+					<a class="sub-link" href="le_meridien.html">Le Meridien, New Delhi</a><br>
+					<a class="sub-link" href="hotel_in_indonesia.html">Hotel in Indonesia</a><br />
+					<a class="sub-link" href="radisson_blu.html">Radisson Blu, West Delhi</a><br />
+					<a class="sub-link" href="the_lalit_ashok_bangalore.html">The Lalit Ashok, Bangalore</a><br />
+					<a class="sub-link" href="the_lalit_grand_palace_srinagar.html">The Lalit Grand Palace, Srinagar</a><br />
+					<a class="sub-link" href="the_lalit_kolkata.html">The Lalit, Kolkata</a><br />
+					<a class="sub-link" href="the_lalit_chandigarh.html">The Lalit, Chandigarh</a><br />
+					<a class="sub-link" href="the_lalit_jaipur.html">The Lalit, Jaipur</a><br />
+					<a class="sub-link" href="the_lalit_mumbai.html">The Lalit, Mumbai</a><br />
+					<a class="sub-link" href="the_lalit_new_delhi.html">The Lalit, New Delhi</a><br />
+					<a class="sub-link" href="the_marriott_jaipur.html">The Marriott, Jaipur</a><br />
+					<a class="sub-link" href="radisson_blu_dwarka.html">The Radisson Blu, Dwarka</a><br />							
+					<a class="sub-link" href="the_sahara_star_mumbai.html">The Sahara Star, Mumbai</a><br />
+				</div>
+				<a class="footer-main hospitality first">HOSPITALITY</a> -->
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			
+			<div class="footer-menu-tab" page="project">
+				<div class="footer-submenu"  style="padding-bottom:5px;" >
+					<a class="main-link" onclick="show_footer_project_sublinks( this, 'commercial_aviation_sublinks', 'commerical' );" href="#">Aviation</a><br>
+					<div id="commercial_aviation_sublinks" style="display:none;">
+								<div style="width:350px;"><a class="sub-link" href="airport.html">Airport</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="aircraft_interior_exterior.html">Aircraft Exterior + Interior</a><br /></div>
+								<div style="width:350px;"><a class="sub-link" href="sahara_air_longues.html">Sahara Air Lounges</a><br /></div>
+					</div>
+					<a class="main-link" onclick="show_footer_project_sublinks( this, 'commercial_offices_sublinks', 'commerical' );" href="#">Offices </a><br>
+							<div id="commercial_offices_sublinks" style="display:none;" ></div>
+							
+							<a class="main-link" onclick="show_footer_project_sublinks( this, 'commercial_retail_sublinks', 'commerical' );" href="">Retail</a><br>
+							<div id="commercial_retail_sublinks" style="display:none;"></div>
+				</div>
+				<a class="footer-main commercial" >COMMERCIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<div class="footer-submenu"  style="padding-bottom:5px;" >
+							<a class="main-link" href="santacruz.html">Santacruz</a><br />
+							<a class="main-link" href="aamby_valley.html">Aamby Valley City </a><br />
+							<a class="main-link" href="khar.html">Khar</a><br />
+							<a class="main-link" href="khandala.html">Khandala</a><br />
+							<a class="main-link" href="napeansea_rd.html">Napeansea Road</a><br />
+							<a class="main-link" href="residence_in_delhi.html">Residence in Delhi</a><br />
+							<a class="main-link" href="indore.html">Indore</a><br />
+							<a class="main-link" href="hyderabad.html">Hyderabad</a><br />
+							<a class="main-link" href="show_flat_hiranandani_construct.html"> Show flat for Hiranandani Constructions</a><br />
+				</div>
+				<a class="footer-main residential">RESIDENTIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<div class="footer-submenu"  style="padding-bottom:5px;" >
+					<a class="main-link" href="park_healthcare_hospital_hyderabad.html"> Park-Healthcare-Hospital, Hyderabad </a><br />
+							<a class="main-link" href="vijaya_diagnostics_hyderabad.html"> Vijaya-Diagnostics, Hyderabad</a><br />
+							<a class="main-link" href="metropolis_laboratories_mumbai.html"> Metropolis-Laboratories, Mumbai</a>
+				</div>
+				<a class="footer-main healthcare">HEALTHCARE</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<div class="footer-submenu"  style="padding-bottom:5px;" >
+					<a class="main-link" href="whistling_woods_film_institute_mumbai.html">Whistling Woods Film Institute, Mumbai</a><br />
+							<a class="main-link" href="hiranandani_foundation_international_school_chennai.html">Hiranandani Foundation International <br>School, Chennai</a><br />
+							<a class="main-link" href="somaiya_college_of_engg.html">Somaiya College of Engineering</a><br />
+							<a class="main-link" href="auditorium_somaiya_institute_mumbai.html">Auditorium Somaiya Institute Mumbai</a><br />
+							
+				</div>
+				<a class="footer-main institutional">INSTITUTIONAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<div class="footer-submenu"  style="padding-bottom:5px;" >
+					<a class="main-link" href="aamby_valley_city_lonavala.html">Aamby Valley City, Lonavala </a><br />
+							<a class="main-link" href="master_planning_new_chattisgsarh.html">Master Planning for New Capital City of Chhattisgard</a><br />
+							<a class="main-link" href="master_plan_backwards_of_kerala.html"> Master Plan for the Integrated Development of the backwaters <br>of Kerala - Govt Kerala Dept of tourism</a><br />
+							<a class="main-link" href="villa_development_at_mashobra_shimla.html">Villa Development at Mashobra, Shimla (India)</a><br />
+				</div>
+				<a class="footer-main urban_planning">URBAN PLANNING</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<div class="footer-submenu"  style="padding-bottom:5px;" >
+					<a class="main-link" href="the_raheja_exotica_madh_island.html">The Raheja Exotica, Madh Island</a><br />
+							<a class="main-link" href="club_at_hiranandani_upscale_banglore.html">Club at Hiranandani Upscale, Bangalore</a><br />
+							<a class="main-link" href="sahara_quest_city_club_5_star_india.html">Sahara Quest City Club + 5 Star Hotel, India</a><br />
+							<a class="main-link" href="sahara_quest_country_club_5_star_india.html">Sahara Quest Country Club + 5 Star Resort, India </a><br />
+							<a class="main-link" href="tarangan_community_centre_thane.html">Tarangan Community Centre for Kalpataru Builders, <br>Thane (Near Mumbai)</a><br />
+							<a class="main-link" href="club_house_at_tarangan_for_kalpataru_builders.html">Club house at Tarangan for Kalpataru Builders, <br>Thane (Near Mumbai)</a><br />
+							<a class="main-link" href="club_siddhanchal_for_kalpataru_builders_thane.html">Club Siddhachal for Kalpataru Builders, Thane</a><br />
+							<a class="main-link" href="kalpataru_heights_mumbai.html">Kalpataru Heights, Mumbai</a><br />
+							<a class="main-link" href="majas_clubhouse_for_kalpataru_builders_mumbai.html">Majas clubhouse for Kalpataru Builders, Mumbai </a><br />
+							<a class="main-link" href="karma_kshetra_clubhouse_for_kalpataru_builders.html">Karma Kshetra clubhouse for Kalpataru Builders, <br>Mumbai</a><br />
+							<a class="main-link" href="kalpataru_habitat.html">Kalpataru Habitat</a><br />
+							<a class="main-link" href="clubhouse_for_k_raheja_corp_goa.html">Clubhouse for K.Raheja Corp., Goa</a><br />
+							<a class="main-link" href="bptp_clubhouse_faridabad.html">BPTP Clubhouse, Faridabad</a><br />
+				</div>
+				<a class="footer-main recreational">RECREATIONAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="contact"></div>
+			<div class="footer-menu-tab" page="contact">
+				<a class="footer-main contact_us"  href="contact_us.html">CONTACT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="menu"></div>
+			<div class="footer-menu-tab" page="menu">
+				<a class="footer-main menu" href="index.html">HOME</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="overlay" style="display:none">
+<div class="percent-count">
+<div class="loader-count"><span>0</span>%</div>
+<div class="loader-train"></div>
+<div class="loader-rail"></div>
+</div>
+</div>
+<div class="dark-overlay">
+<div class="percent-count">
+<div class="dark-loader-train"></div>
+<div class="dark-loader-rail"></div>
+</div>
+</div>
+</body>
+</html>

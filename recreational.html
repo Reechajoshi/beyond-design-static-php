@@ -1,0 +1,249 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>BM&amp;A - Bobby Mukherji &amp; Associates</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.js"></script>
+<script>
+function slideSwitch() {
+    var $active = $('#slideshow IMG.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+    // use this to pull the images in the order they appear in the markup
+    var $next =  $active.next().length ? $active.next()
+        : $('#slideshow IMG:first');
+
+    // uncomment the 3 lines below to pull the images in random order
+    
+    // var $sibs  = $active.siblings();
+    // var rndNum = Math.floor(Math.random() * $sibs.length );
+    // var $next  = $( $sibs[ rndNum ] );
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 0, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 0 );
+});
+
+$(document).ready (function(e){
+	$(".data").mCustomScrollbar({
+		scrollButtons:{
+			enable:false,
+		},autoDraggerLength:false,
+		advanced:{
+			updateOnBrowserResize:true,
+			updateOnContentResize:true,
+		}
+	});
+	
+
+});
+
+</script>
+
+</head>
+
+
+
+
+
+<body>
+
+<div id="slideshow">		
+	<img src="images/bg2.jpg" alt="Slideshow Image 1" class="active"/>
+	
+</div>
+
+
+<div id="slideshow1" class="forleaderpage"  style="display:none" >
+	<img src="images/boby.jpg" alt="Slideshow Image 1" class="active" />	
+</div>
+
+<header id="header">
+	<div class="logo">
+		<a href="home.html">
+			<img src="images/logo.png" height="60px" width="150px" />
+		</a>
+	</div>
+</header>
+
+<section id="main-content">
+	<div class="changeablediv">
+	<div class="content-wrapper press-index1">
+		<div class="data">
+		
+		<div class="hospitality-content" style="position:relative">
+				<div class="client-main-heading">
+					<a href="#">RECREATIONAL </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Grohe Spa, Jakarta - Grohe inc <span class="hospitality-content-year"> (2013)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Triangle Pool Pub, Mumbai - Hiranandani Constructions  <span class="hospitality-content-year"> (2000)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Hakone Go Karting, Mumbai - Hiranandani Constructions <span class="hospitality-content-year"> (2000)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Hakone Gaming Centre & Bowling Alley, Mumbai - Hiranandani Constructions <span class="hospitality-content-year"> (2000)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Sahara Quest City Club + 5 star Hotel - Sahara India Pariwar <span class="hospitality-content-year"> (Ongoing)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Sahara Quest Country Club + 5 star Resort - Sahara India Pariwar <span class="hospitality-content-year"> (Ongoing)</span> </a>
+					<div class="clear"></div>
+				</div>	
+				<div class="hospitality-content-block">
+					<a href="#">Club Raheja Exotica - K. Raheja Universal <span class="hospitality-content-year"> (2005)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Healthclub & Spa, Ahmedabad - Club 7 <span class="hospitality-content-year"> (Ongoing)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Hiranandani Upsacle, Chennai - House of Hiranandani <span class="hospitality-content-year"> (Ongoing)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Hiranandani Upsacle Club, Bangalore - House of Hiranandani <span class="hospitality-content-year"> (Ongoing)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Kalpataru Shrishti Club House in Mumbai. - Kalpataru Constructions <span class="hospitality-content-year"> (2003)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Kalpataru Heights at Mumbai Central. - Kalpataru Constructions <span class="hospitality-content-year"> (2000)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Kalpataru Habitat, Parel. - Kalpataru Constructions <span class="hospitality-content-year"> (2001)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Kalapataru Club (Tarangan) and Community Center at thane. - Kalpataru Constructions  <span class="hospitality-content-year"> (2002)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Kalapataru Majas Clubhouse. - Kalpataru Constructions <span class="hospitality-content-year"> (2003)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Kalapataru Horizon, Worli. - Kalpataru Constructions <span class="hospitality-content-year"> (2006)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Country Club, Thane - Kalpataru Constructions <span class="hospitality-content-year"> (2000)</span> </a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#">Clubhouse at Faridabad, New Delhi - BPTP <span class="hospitality-content-year"> (2007)</span> </a>
+					<div class="clear"></div>
+				</div>
+				
+				<!-- <div class="hospitality-content-block">
+					<a href="#"> Grohe Spa, Jakarta - Grohe inc. <span class="hospitality-content-year">(2013)</span></a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#"> Triangle Pool Pub, Mumbai - Hiranandani Constructions <span class="hospitality-content-year">(2000)</span></a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#"> Hakone Go Karting, Mumbai - Hiranandani Constructions <span class="hospitality-content-year">(2000)</span></a>
+					<div class="clear"></div>
+				</div>
+				<div class="hospitality-content-block">
+					<a href="#"> Hakone Gaming Centre & Bowling Alley, Mumbai - Hiranandani Constructions <span class="hospitality-content-year">(2000)</span></a>
+					<div class="clear"></div>
+				</div> -->
+		</div>
+	</div>
+	</div>
+</section>
+<footer id="footer">
+	<div class="footer-wrapper">
+		<div class="footer-menu">
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="about_us" href="about_us.html">ABOUT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="leaders" href="leaders.html">LEADERS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="press" href="press.html">PRESS</a>
+			</div>
+			<div class="footer-menu-spacer" page="profile"></div>
+			<div class="footer-menu-tab" page="profile">
+				<a class="awards" href="awards.html">AWARDS</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="hospitality" href="awards.html">hospitality</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="hospitality" href="awards.html">hospitality</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="residential" href="awards.html">RESIDENTIAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="recreational" href="awards.html">RECREATIONAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="architectural" href="awards.html">ARCHITECTURAL</a>
+			</div>
+			<div class="footer-menu-spacer" page="project"></div>
+			<div class="footer-menu-tab" page="project">
+				<a class="urban_planning" href="awards.html">URBAN PLANNING</a>
+			</div>
+			<div class="footer-menu-spacer" page="contact"></div>
+			<div class="footer-menu-tab" page="contact">
+				<a class="contact_us" href="awards.html">CONTACT US</a>
+			</div>
+			<div class="footer-menu-spacer" page="menu"></div>
+			<div class="footer-menu-tab" page="menu">
+				<a class="menu" href="home.html">MENU</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="overlay" style="background:none;display:none">
+<div class="percent-count">
+<div class="loader-count"><span>0</span>%</div>
+<div class="loader-train"></div>
+<div class="loader-rail"></div>
+</div>
+</div>
+</body>
+</html>
